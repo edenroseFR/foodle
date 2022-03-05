@@ -1,0 +1,70 @@
+{% extends "login/base.html" %}
+
+{% block title %}Food Donation - Sign Up{% endblock %}
+{% block header %}Create an account{% endblock %}
+{% block form %}
+<form action="{{url_for('login.register')}}" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token() }}
+    <div class="form-group">
+      {{ form.first_name.label }}
+      {{ form.first_name(id='first_name', class='form-control', required=True) }}
+    </div>
+    <div class="form-group">
+      {{ form.middle_name.label }}
+      {{ form.middle_name(id='middle_name', class='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.last_name.label }}
+      {{ form.last_name(id='last_name', class='form-control', required=True) }}
+    </div>
+    <div class="form-group">
+      {{ form.email_address.label }}
+      {{ form.email_address(id='email_address', class='form-control', required=True, placeholder="Use an active email") }}
+    </div>
+    <div class="form-group mb-4">
+      {{ form.phone_number.label }}
+      {{ form.phone_number(id='phone_number', class='form-control', required=True, pattern="^((\+63)|0)\d{10}$") }}
+    </div>
+    <br>
+    <p>Please select your account type:</p>
+    <div class="form-check">
+      {{ form.account_type(id='account_type') }}
+    </div>
+    <br>
+    <h5>Address</h5>
+    <div class="form-group mb-4">
+      {{ form.street.label }}
+      {{ form.street(id='street', class='form-control', required=True) }}
+    </div>
+    <div class="form-group mb-4">
+      {{ form.barangay.label }}
+      {{ form.barangay(id='barangay', class='form-control', required=True) }}
+    </div>
+    <div class="form-group mb-4">
+      {{ form.city.label }}
+      {{ form.city(id='city', class='form-control', required=True) }}
+    </div>
+    <br>
+    <h5>Login Credentials</h5>
+    <div class="form-group">
+      {{ form.username.label }}
+      {{ form.username(id='username', class='form-control', required=True) }}
+    </div>
+    <div class="form-group mb-4">
+      {{ form.password.label }}
+      {{ form.password(id='password', class='form-control', required=True) }}
+    </div>
+    <div class="form-group mb-4">
+      {{ form.confirm_password.label }}
+      {{ form.confirm_password(id='confirm_password', class='form-control', required=True) }}
+    </div>
+    <div class="form-group mb-4">
+      {{ form.submit(class='btn btn-block login-btn mb-4')}}
+    </div>
+ </form>
+ {% endblock %}
+{% block link %}
+<!-- <a href="#!" class="forgot-password-link">Forgot password?</a> -->
+<p class="login-card-footer-text">Already have an account? <a href="{{url_for('login.login')}}" class="text-reset">Login here</a></p>
+{% endblock %}
