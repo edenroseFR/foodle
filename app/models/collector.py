@@ -107,3 +107,104 @@ class Collector():
             categories += i + ', '
         categories = categories[:-2]
         return categories
+
+    @staticmethod
+    def set_distribute_to_true(donation_id):
+        query1 = f'''
+            UPDATE donations
+            SET is_distributed = '1'
+            WHERE donation_id = {donation_id};
+        '''
+        query2 = f'''
+            UPDATE collected_donations
+            SET is_distributed = '1'
+            WHERE donation_id = {donation_id};
+        '''
+        cursor.execute(query1)
+        db.commit()
+        cursor.execute(query2)
+        db.commit()
+        return None
+
+    def get_items_to_collect(self,collector_id):
+        query = f'''
+            SELECT 
+                u.user_id,
+                u.first_name, 
+                u.middle_name, 
+                u.last_name, 
+                u.org_name,
+                rd.datetime_reserved,
+                d.donation_id, 
+                d.street,
+                d.barangay,
+                d.city,
+                d.transport_mode
+            FROM reserved_donations rd
+            JOIN donations d ON rd.donation_id = d.donation_id
+            JOIN  users u on d.donor_id = u.user_id
+            WHERE rd.collector_id = {collector_id} and rd.is_collected = 0
+        '''
+        cursor.execute(query)
+        result = cursor.fetchall()
+        result = [list(reserve) for reserve in result]
+        to_distribute = []
+        for donation in result:
+            item = []
+            donation_id = donation[6]
+            org_name = donation[4]
+            org_id = donation[0]
+            donation_categories = self.get_donation_categories(donation_id)
+            if org_name:
+                donor_name = [org_name, org_id]
+            else:
+                donor_name = [donation[1] + ' ' + donation[2] + ' ' + donation[3], org_id]
+            reserve_time = donation[5].strftime("%b %d %Y %H:%M:%S")
+            collection_address = donation[7] + ', ' + donation[8] + ', ' + donation[9]
+            transport_mode = self.get_transport_mode_name(donation[-1])
+            donation_images = self.get_donation_images(donation_id)
+            item = [donation_id, donor_name, donation_categories, reserve_time, collection_address, transport_mode, donation_images]
+            to_distribute.append(item)
+        return to_distribute
+
+    def get_transport_mode_name(self,mode_id):
+        query = f'''
+            SELECT mt.mode_name
+            FROM transport_modes mt
+            WHERE mt.mode_id = {mode_id}
+        '''
+        cursor.execute(query)
+        name = cursor.fetchone()[0]
+        return name
+
+    @staticmethod
+    def set_collected_to_true(donation_id, collector_id, datetime_collected):
+        query1 = f'''
+            UPDATE donations
+            SET is_collected = '1'
+            WHERE donation_id = {donation_id};
+        '''
+        query2 = f'''
+            INSERT INTO collected_donations(
+                donation_id, 
+                collector_id, 
+                datetime_collected
+            )
+            VALUE (
+                {donation_id},
+                {collector_id},
+                '{datetime_collected}'
+            )
+        '''
+        query3 = f'''
+            UPDATE reserved_donations
+            SET is_collected = '1'
+            WHERE donation_id = {donation_id};
+        '''
+        cursor.execute(query1)
+        db.commit()
+        cursor.execute(query2)
+        db.commit()
+        cursor.execute(query3)
+        db.commit()
+        return None
