@@ -1,0 +1,3 @@
+FLASK_APP=fodo
+FLASK_ENV=development
+FLASK_RUN_PORT=5050
