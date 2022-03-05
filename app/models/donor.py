@@ -45,3 +45,59 @@ class Donor:
         cursor.execute(query)
         donor_id = cursor.fetchone()[0]
         return donor_id
+
+    @classmethod
+    def donation_stat_foods(cls, session_email):
+        query_1 = "select users.user_id from users where email = %s"
+        cursor.execute(query_1, [session_email])
+        temp = cursor.fetchone()
+        user_id = temp[0]
+
+        query_2 = "select items.quantity from donations inner join items on items.donation_id = donations.donation_id \
+        inner join users on users.user_id = donations.donor_id where donations.is_collected = 1 and users.user_id = %s \
+        and items.unit = 1"
+        cursor.execute(query_2, [user_id])
+        results = cursor.fetchall()
+        return results
+
+    @classmethod
+    def donation_stat_beverages(cls, session_email):
+        query_1 = "select users.user_id from users where email = %s"
+        cursor.execute(query_1, [session_email])
+        temp = cursor.fetchone()
+        user_id = temp[0]
+
+        query_2 = "select items.quantity from donations inner join items on items.donation_id = donations.donation_id \
+        inner join users on users.user_id = donations.donor_id where donations.is_collected = 1 and users.user_id = %s \
+        and items.unit = 2"
+        cursor.execute(query_2, [user_id])
+        results = cursor.fetchall()
+        return results
+
+    @classmethod
+    def donation_stat_food_distributed(cls, session_email):
+        query_1 = "select users.user_id from users where email = %s"
+        cursor.execute(query_1, [session_email])
+        temp = cursor.fetchone()
+        user_id = temp[0]
+
+        query_2 = "select items.quantity from donations inner join items on items.donation_id = donations.donation_id \
+        inner join users on users.user_id = donations.donor_id where donations.is_distributed = 1 and users.user_id = %s \
+        and items.unit = 1"
+        cursor.execute(query_2, [user_id])
+        results = cursor.fetchall()
+        return results
+
+    @classmethod
+    def donation_stat_bev_distributed(cls, session_email):
+        query_1 = "select users.user_id from users where email = %s"
+        cursor.execute(query_1, [session_email])
+        temp = cursor.fetchone()
+        user_id = temp[0]
+
+        query_2 = "select items.quantity from donations inner join items on items.donation_id = donations.donation_id \
+        inner join users on users.user_id = donations.donor_id where donations.is_distributed = 1 and users.user_id = %s \
+        and items.unit = 2"
+        cursor.execute(query_2, [user_id])
+        results = cursor.fetchall()
+        return results
