@@ -1,0 +1,27 @@
+{% extends "login/base.html" %}
+
+{% block title %}Food Donation - Reset Password{% endblock %}
+{% block header %}Forgot Password{% endblock %}
+{% block form %}
+<form class="login100-form validate-form" action="{{url_for('login.verify_code')}}" method="post">
+  {{ form.hidden_tag() }}
+  {{ form.csrf_token() }}
+  <div class="wrap-input100 validate-input m-b-10">
+    {{ form.code(class='input100', placeholder='Enter reset code')}}
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <i class="fa fa-envelope"></i>
+    </span>
+  </div>
+  <p class="ec_message wrap-input100">Reset code is sent to {{email}}</p>
+  {% include "/includes/alert_message.html"%}
+  <div class="container-login100-form-btn p-t-10">
+    {{ form.submit(class='login100-form-btn btn-success')}}
+  </div>
+  <div class="links wrap-input100">
+    {% block link %}
+    <a href="{{url_for('login.register')}}" class="create-account-link txt1">Don't have an account? Register here</a>
+    {% endblock %}
+  </div>
+</form>
+{% endblock %}
