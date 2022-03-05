@@ -208,3 +208,128 @@ class Collector():
         cursor.execute(query3)
         db.commit()
         return None
+
+    def get_completed_collections(self, user_id):
+        query = f'''
+                SELECT 
+                    donation_id,
+                    datetime_distributed
+                FROM distributed_donations
+                WHERE collector_id = {user_id}
+        '''
+        cursor.execute(query)
+        result = cursor.fetchall()
+        result = [list(reserve) for reserve in result]
+        completed = []
+        for donation in result:
+            item = []
+            completed_ID = [data[0] for data in completed]
+            donation_id = donation[0]
+            if donation_id not in completed_ID:
+                donation_categories = self.get_donation_categories(donation_id)
+                distribution_imgs = self.get_distribution_images(donation_id)
+                donor_name = self.get_donor_name(donation_id)
+                donation_items = self.get_donation_images(donation_id)
+                completion_time = donation[1].strftime("%b %d %Y %H:%M:%S")
+                item = [donation_id, donor_name, donation_categories, completion_time, distribution_imgs, donation_items]
+                completed.append(item)
+        return completed
+
+    @staticmethod
+    def save_distribution_images(donation_id: int, images: list[str]):
+        for image in images:
+            if image != '':
+                query = f'''
+                    INSERT INTO distribution_images(donation_id, image_link)
+                    VALUE ({donation_id}, '{image}')
+                '''
+                cursor.execute(query)
+                db.commit()
+        return None
+
+        def get_distribution_images(self, donation_id) -> list[str]:
+        query = f'''
+            SELECT image_link
+            FROM distribution_images
+            WHERE donation_id = {donation_id}
+        '''
+        cursor.execute(query)
+        result = cursor.fetchall()
+        result = [str(img[0]) for img in result]
+        return result
+
+    @staticmethod
+    def record_distribution(donation_id, collector_id, time_created):
+        query = f'''
+            INSERT INTO distributed_donations (
+                donation_id,
+                collector_id,
+                datetime_distributed
+            )
+            VALUE (
+                {donation_id},
+                {collector_id},
+                '{time_created}'
+            )
+        '''
+        cursor.execute(query)
+        db.commit()
+        return None
+
+    def get_donor_name(self, donation_id):
+        query = f'''
+            SELECT u.first_name,
+                   u.middle_name,
+                   u.last_name,
+                   u.org_name,
+                   u.user_id
+            FROM donations d
+            JOIN users u ON d.donor_id = u.user_id
+            WHERE donation_id = {donation_id}
+        '''
+        cursor.execute(query)
+        result = cursor.fetchall()
+        result = [str(col) for col in result[0]]
+        user_id = result[4]
+        if result[3]:
+            return [result[3], user_id]
+        else:
+            return [result[0] + ' ' + result[1] + ' ' + result[2], user_id]
+    
+    @staticmethod
+    def set_collected_to_false(donation_id):
+        query1 = f'''
+            UPDATE donations
+            SET is_collected = '0'
+            WHERE donation_id = {donation_id}
+        '''
+
+        query2 = f'''
+            DELETE FROM reserved_donations
+            WHERE donation_id = {donation_id}
+        '''
+
+        query3 = f'''
+            UPDATE donations SET is_posted = '1'
+            WHERE donation_id = {donation_id}
+        '''
+
+        cursor.execute(query1)
+        db.commit()
+        cursor.execute(query2)
+        db.commit()
+        cursor.execute(query3)
+        db.commit()
+        return None
+
+    def get_total_food_bev_distributed(self, email_address):
+        collector_id = self.get_id(email_address)
+        query = f'''
+            SELECT SUM(i.quantity)
+            FROM distributed_donations dd
+            JOIN items i ON dd.donation_id = i.donation_id
+            WHERE dd.collector_id = {collector_id}
+        '''
+        cursor.execute(query)
+        total = cursor.fetchone()[0]
+        return total
