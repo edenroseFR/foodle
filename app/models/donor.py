@@ -239,17 +239,6 @@ class Donor:
         return mode_name
 
     @staticmethod
-    def get_donor_id(session_email):
-        query = f"""
-            SELECT user_id
-            FROM users
-            WHERE email = '{session_email}'
-        """
-        cursor.execute(query)
-        donor_id = cursor.fetchone()[0]
-        return donor_id
-
-    @staticmethod
     def delete_donation(donation_id):
         query1 = f"""
             DELETE FROM donations
