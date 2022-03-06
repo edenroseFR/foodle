@@ -138,7 +138,7 @@ def donate_donation():
 
     added_items.clear()
     flash("Posted", "success")
-    return redirect(url_for("donations.posted_donations"))
+    return redirect(url_for("donation_feed.posted_donations"))
 
 
 @donate_bp.route("/donor/donate/get-donation-items", methods=["GET", "POST"])
@@ -275,4 +275,4 @@ def update_donation():
 
     update_donation_added_items.clear()
     flash("Updated!", "success")
-    return redirect(url_for("donations.posted_donations"))
+    return redirect(url_for("donation_feed.posted_donations"))

@@ -34,15 +34,9 @@ def show_donation_items(donation_id):
 
 
 def add_donation(
-    email_address,
-    added_items,
-    datetime,
-    transport_mode,
-    street,
-    barangay,
-    city,
+    email_address, added_items, datetime, transport_mode, street, barangay, city
 ):
-    Donation.add_donation(
+    Donation().add_donation(
         email_address,
         added_items,
         datetime,
