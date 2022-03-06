@@ -13,3 +13,8 @@ def create_app():
 
     from app.views.login import login_bp
     app.register_blueprint(login_bp)
+
+    from app.views.landing_page import landing_bp
+    app.register_blueprint(landing_bp)
+
+    return app

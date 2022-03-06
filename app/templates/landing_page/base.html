@@ -1,0 +1,65 @@
+{% extends "layouts/master_landing.html" %} {% block title %}{% endblock %}{% block content %}
+
+
+<div class="main-container">
+    <div class="img-container">
+            <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1638613132/bg_jeqlma.jpg" alt="">
+            <div class="tl-container">
+                <h1><span class="tgA">FEED.</span></h1>
+                <h2><span class="tgB">It's now that easy to rescue food.</span></h2><br>
+                <h5><span class="tgC">You're just a couple simple steps away from donating <br> your surplus food to help nourish your community. <br> It's free, safe, and fast!</span></h5>
+                <button class="btn btn-success btn-d"><a href="{{ url_for('login.login') }}">DONATE NOW</a></button>
+            </div>
+    </div>
+</div>
+
+<section class="p-5">
+    <div class="container">
+        <div class="row text-center g-4">
+        <div class="col-md">
+            <div class="card bg-success text-light">
+            <div class="card-body text-center">
+                <div class="h1 mb-3">
+                </div>
+                <h3 class="card-title mb-3">ORGANIZATION</h3>
+                <p class="card-text">
+                    You truly make a difference, 
+                    and we are extremely grateful!
+                </p>
+                <a href="{{ url_for('landing.landing', request_for='organizations') }}#organizations" class="btn btn-light">Read More</a>
+            </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card bg-warning text-light">
+            <div class="card-body text-center">
+                <div class="h1 mb-3">
+                </div>
+                <h3 class="card-title mb-3">HOW IT WORKS</h3>
+                <p class="card-text">
+                    FODO is an online platform where surplus food is posted as donation,
+                    for our organizations to collect.
+                </p>
+                <a href="{{ url_for('landing.landing', request_for='learn') }}#learn" class="btn btn-light">Read More</a>
+            </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card bg-success text-light">
+            <div class="card-body text-center">
+                <div class="h1 mb-3">
+                </div>
+                <h3 class="card-title mb-3">WHERE IT GOES</h3>
+                <p class="card-text">
+                    Here at FODO, we aim to lessen the number of food waste 
+                    by feeding it to the hungry.
+                </p>
+                <a href="{{ url_for('landing.landing', request_for='where_it_goes') }}#where_it_goes" class="btn btn-light">Read More</a>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

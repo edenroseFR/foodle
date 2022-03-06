@@ -1,0 +1,66 @@
+.manage-members-container {
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+
+.manage-members-container .add-member {
+    background-color: #198754;
+}
+
+.members-container, .sent-invites {
+    /*border: 2px solid #198754;*/
+    /*border-radius: 0.5rem;*/
+    /*padding: 30px;*/
+    margin-top: 50px;
+}
+
+
+
+.members-title-and-search-bar {
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+.members ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.members a {
+    text-decoration: none;
+    color: #222;
+}
+
+.members ul li {
+    background-color: #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.adding-members li, .members-container li, .sent-invites li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.members ul li:hover {
+    background-color: #bbb;
+}
+
+.members img {
+    border-radius: 100%;
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.search-member {
+    width: initial;
+}
+
+a.btn {
+    color: #fff !important;
+}

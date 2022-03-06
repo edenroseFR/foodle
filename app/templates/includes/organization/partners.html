@@ -1,0 +1,41 @@
+<div class="container posted-donation-container partner-container">   
+    <div class="container text-center" id="post-container">
+        <h5 id="header right-header">{{header.1}}</h5>
+
+        <div class="partners">
+            {% for data in data_b %}
+            <div class="partner-top">
+                <div class="social-avatar">
+                    <div class="org-profile">
+                        <a href="{{url_for('organization.org_page', org_id=data_b[data][1] )}}" style="text-decoration: none;">
+                            {% if data_b[data][0] %}
+                            <img alt="image" src="{{data_b[data][0]}}">
+                            {% else %}
+                            <img alt="image" src="https://res.cloudinary.com/deh9vgcga/image/upload/v1638884209/22-223968_default-profile-picture-circle-hd-png-download_ct3blj.png">
+                            {% endif %}
+                        </a>
+                    </div>
+                </div>
+                <div class="partner-bottom">
+                    <div class="partner-name">
+                        {%if data|length > 25%}
+                        <small>{{data[:25]}}...</small>
+                        {%else%}
+                        <small>{{data}}</small>
+                        {%endif%}
+                    </div>
+                    <div class="partner-about">
+                        {% if data_b[data][2] != None %}
+                            {%if data_b[data][2]|length > 100%}
+                            <small>{{data_b[data][2][:100]}}...</small>
+                            {%else%}
+                            <small>{{data_b[data][2]}}</small>
+                            {%endif%}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
