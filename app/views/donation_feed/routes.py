@@ -96,7 +96,7 @@ def delete():
     delete_donation(donation_id)
 
     flash("Post deleted", "danger")
-    return redirect(url_for("donations.posted_donations"))
+    return redirect(url_for("donation_feed.posted_donations"))
 
 
 @donation_feed_bp.route("/donor/donation feed/edit donation")
@@ -104,7 +104,7 @@ def edit_donation():
     donation_id = request.args.get("id")
     delete_donation(donation_id)
 
-    return redirect(url_for("donations.posted_donations"))
+    return redirect(url_for("donation_feed.posted_donations"))
 
 
 @donation_feed_bp.route("/donor/donation feed/cancel reserved donation")
@@ -115,4 +115,4 @@ def cancel_donation():
 
     flash("Donation cancelled", "danger")
 
-    return redirect(url_for("donations.reserved_donations"))
+    return redirect(url_for("donation_feed.reserved_donations"))

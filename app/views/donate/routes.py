@@ -12,7 +12,7 @@ from .utils import (
     show_donation_items,
     add_donation,
     get_donation_details,
-    update_donation,
+    update_donation_util,
 )
 import datetime as dt
 
@@ -138,7 +138,7 @@ def donate_donation():
 
     added_items.clear()
     flash("Posted", "success")
-    return redirect(url_for("donations.posted_donations"))
+    return redirect(url_for("donation_feed.posted_donations"))
 
 
 @donate_bp.route("/donor/donate/get-donation-items", methods=["GET", "POST"])
@@ -262,7 +262,8 @@ def update_donation():
         city = donate_form.city.data
         transport_mode = donate_form.transport_mode.data
         number_of_items = len(update_donation_added_items)
-        update_donation(
+
+        update_donation_util(
             session["donation_id"],
             update_donation_added_items,
             datetime,
@@ -275,4 +276,4 @@ def update_donation():
 
     update_donation_added_items.clear()
     flash("Updated!", "success")
-    return redirect(url_for("donations.posted_donations"))
+    return redirect(url_for("donation_feed.posted_donations"))
