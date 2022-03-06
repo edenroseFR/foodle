@@ -22,9 +22,9 @@
           {% endif %}
           <ul class="list-unstyled components nav-item-list">
             <li class="nav-item sidebar-item">
-              <a href="/donor/dashboard" class="sidebar-link">
-                <i class="bi bi-house nav-item-icon"></i>
-                <span class="nav-item-label">Home</span>
+              <a href="{{url_for('donation_feed.posted_donations')}}"  class="sidebar-link">
+                <i class="bi bi-box-seam nav-item-icon"></i>
+                <span class="nav-item-label">Donations</span>
               </a>
             </li>
             <li class="nav-item sidebar-item">
@@ -33,12 +33,7 @@
                 <span class="nav-item-label">Donate</span>
               </a>
             </li>
-            <li class="nav-item sidebar-item">
-              <a href="{{url_for('my_donations.posted_donations')}}"  class="sidebar-link">
-                <i class="bi bi-box-seam nav-item-icon"></i>
-                <span class="nav-item-label">Donations</span>
-              </a>
-            </li>
+        
             <li class="nav-item sidebar-item">
               <a href="#"  class="sidebar-link">
                 <i class="bi bi-calendar-event nav-item-icon"></i>
@@ -52,13 +47,13 @@
                 </a>
             </li>
             <li class="nav-item sidebar-item">
-                <a href="{{ url_for('organization.index') }}"  class="sidebar-link">
+                <a href="#"  class="sidebar-link">
                   <i class="bi bi-people-fill nav-item-icon"></i>
                   <span class="nav-item-label">Organizations</span>
                 </a>
             </li>
             <li class="nav-item sidebar-item">
-                <a href="{{ url_for('settings.settings') }}"  class="sidebar-link">
+                <a href="#"  class="sidebar-link">
                   <i class="bi bi-gear nav-item-icon"></i>
                   <span class="nav-item-label">Settings</span>
                 </a>

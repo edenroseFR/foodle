@@ -32,4 +32,10 @@ def create_app():
 
     app.register_blueprint(landing_bp)
 
+    from app.views.dashboard import dashboard_bp
+    app.register_blueprint(dashboard_bp)
+
+    from app.views.posted_donations_collectors_view import collectors_view_bp
+    app.register_blueprint(collectors_view_bp)
+
     return app
