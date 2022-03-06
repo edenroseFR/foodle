@@ -17,3 +17,8 @@ def get_organization_donors(session_email):
     collector_id = Collector().get_id(session_email)
     donors = Collector().get_donors(collector_id)
     return donors
+
+def get_items_to_collect(session_email):
+    collector_id = Collector().get_id(session_email)
+    items_to_collect = Collector().get_items_to_collect(collector_id)
+    return items_to_collect

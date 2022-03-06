@@ -39,3 +39,16 @@ def completed_collection():
         completed.reverse()
         return render_template('dashboard/org_completed.html', donor = donor_details, completed=completed)
 
+@dashboard_bp.route('/collector/dashboard/recieved or collected')
+def recieve_collect():
+    if 'email_address' in session:
+        donation_id = request.args.get('id')
+        utils.set_collected_to_true(donation_id)
+        return redirect(url_for('dashboard.to_recieve'))
+
+@dashboard_bp.route('/collector/dashboard/cancel')
+def collect_cancel():
+    if 'email_address' in session:
+        donation_id = request.args.get('id')
+        utils.set_collected_to_false(donation_id)
+        return redirect(url_for('dashboard.to_recieve'))
