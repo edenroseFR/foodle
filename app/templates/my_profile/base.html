@@ -1,0 +1,109 @@
+{% extends "master.html" %}
+
+{% block title %}Food Donation - My Profile{% endblock %}
+{% block style %}
+    <link rel="stylesheet" type="text/css"href="{{url_for('static', filename='css/my_profile/profile.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/sidebars/donor_sidebar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbars/donor_navbar.css')}}">
+{% endblock %}
+
+{% if role != 'Collector' %}
+{% include "includes/navbars/donor_navbar.html" %}
+{% else %}
+{% include "includes/navbars/collector_navbar.html" %}
+{%endif%}
+
+{% block body %}
+<div class="container-fluid">
+  <div class="row">
+      {% if role == 'Collector' %}
+        {% include "includes/sidebars/collector_sidebar.html" %}
+      {% else %}
+        {% if donor["user_role"] == 5 %}
+          {% include "includes/sidebars/org_donor_sidebar.html" %}
+        {% else %}
+          {% include "includes/sidebars/donor_sidebar.html" %}
+        {% endif %}
+      {% endif %}
+      <!-- main content -->
+      <main class="col ps-md-2 pt-2" id="main-container" st>
+
+          <section id="section1-main">
+              <div class="content-0">
+                <div class="content-0-container">
+                  <span id="content-0-span">
+                      <div class="role-name">
+                          <h5>{{role}}</h5>
+                      </div>
+                      <div class="user-name">
+                          {% if org.0 %}
+                          <h2>{{org.0}}</h2>
+                          {% else %}
+                          <h2>{{data.1}} {{data.2}} {{data.3}}</h2>
+                          {% endif %}
+                      </div>
+                      <div class="edit-button">
+                        <a href="{{url_for('settings.settings')}}">
+                          <div class="btn">Edit Profile</div>
+                        </a>
+                      </div>
+                  </span>
+                </div>
+              </div>
+              <div class="content-1">
+                <div class="image-container flex-column">
+                  <div class="image-wrapper">
+                      <div class="image">
+                          {% if data.0 %}
+                          <img src="{{data.0}}" alt="" id="user-image">
+                          {% else %}
+                          <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1638884209/22-223968_default-profile-picture-circle-hd-png-download_ct3blj.png" alt="" id="user-image">
+                          {% endif %}
+                        </div>
+                  </div>
+                </div>
+              </div> 
+              <div class="col-sm-2 content-2 d-flex">
+                <p><i class="fa fa-envelope" id="dets"></i> {{user}}</p>
+              </div>
+              <div class="col-sm-2 content-2 d-flex">
+                  <p><i class="fa fa-mobile" id="dets"></i> {{data.4}}</p>
+              </div>
+              <div class="col-sm-2 content-2 d-flex">
+                  <p><i class="fa fa-compass" id="dets"></i> {{address.0}}, {{address.1}}, {{address.2}}</p>
+              </div>
+          </section>
+        
+          <section id="section2-main">
+            <div class="col-6 content-3">
+              <h1><i class="fa fa-info" id="about-icon"></i> About</h1>
+            </div>
+            <div class="col-6 content-4" id="about-content">
+              <h5>{{org.1}}</h5>
+            </div>
+
+          </section>
+
+          {% if role=="Donor" %}
+          <section id="section3-main">
+            <div class="col-6 content-3">
+              <h2>Member of: </h2>
+            </div>
+            <div class="col-6 content-4" id="about-content">
+              <ul>
+              {% for i in parent_orgs %}
+                  <li>
+                    <h4>{{i[0]}}</h4>
+                  </li>
+              {% endfor %}
+              </ul>
+            </div>
+          </section>
+          {% endif %}
+
+          
+      </main>
+  </div>
+</div>
+
+{% endblock %}

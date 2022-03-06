@@ -1,0 +1,30 @@
+{% extends "my_profile/base.html" %}
+{% block title %}Profile{% endblock title %}
+
+<!-- external css links -->
+{% block css_link %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/sidebars/donor_sidebar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbars/donor_navbar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/dashboards/donor_dashboard.css')}}">
+{% endblock css_link%}
+
+{% block navbar %}
+    {% include "includes/navbars/donor_navbar.html" %}
+{% endblock navbar %}
+
+{% block main_content %}
+<!-- sidebar and main content must be inside div class="container-fluid" and div class="row flex-nowrap",
+so that if we collapse the sidebar it pushes the content -->
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include "includes/sidebars/donor_sidebar.html" %}
+        <!-- main content -->
+        <main class="col ps-md-2 pt-2" id="main-container">
+
+        </main>
+    </div>
+</div>
+
+{% endblock main_content %}
+
+{% block javascript_link %} <script src="{{ url_for('static', filename='js/donor_sidebar.js') }}"></script>{% endblock javascript_link %}
