@@ -14,3 +14,28 @@ def collector_dashboard():
         return redirect(url_for("collectors_view.collectors_view"))
     else:
         return redirect(url_for('login.login'))
+
+@dashboard_bp.route('/collector/dashboard/to recieve')
+def to_recieve():
+    if 'email_address' in session:
+        donor_details =  utils.show_donor_details(session["email_address"])
+        reserves = utils.get_items_to_collect(session["email_address"])
+        reserves.reverse()
+        return render_template('dashboard/org_to_collect.html', donor = donor_details, reserves=reserves)
+
+@dashboard_bp.route('/collector/dashboard/to distribute')
+def to_distribute():
+    if 'email_address' in session:
+        donor_details =  utils.show_donor_details(session["email_address"])
+        collections = utils.get_items_for_distribution(session["email_address"])
+        collections.reverse()
+        return render_template('dashboard/org_to_distribute.html', donor = donor_details, collections=collections)
+
+@dashboard_bp.route('/collector/dashboard/completed collection')
+def completed_collection():
+    if 'email_address' in session:
+        donor_details =  utils.show_donor_details(session["email_address"])
+        completed = utils.get_completed_collections(session['email_address'])
+        completed.reverse()
+        return render_template('dashboard/org_completed.html', donor = donor_details, completed=completed)
+
