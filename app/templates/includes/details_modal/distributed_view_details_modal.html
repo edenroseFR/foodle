@@ -1,0 +1,54 @@
+<!-- Modal -->
+<div class="modal fade" id="view_details_modal{{loop.index}}" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Donation Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <form>
+          <div class="mb-4">
+            <label class="details-label">Donor: </label>
+            <p class="details-value tab"><b>{{donation['donor_name']}}</b></p>
+          </div>
+          <div class="mb-4">
+            <label class="details-label">Collector: </label>
+            <p class="details-value tab"><b>{{detail['collector_org_name']}}</b></p>
+          </div>
+          <div class="mb-4">
+            <label class="details-label">Date Posted: </label>
+            <p class="details-value tab"><b>{{detail['datetime_created']}}</b></p>
+          </div>
+          <div class="mb-4">
+            <label class="details-label">Date Reserved: </label>
+            <p class="details-value tab"><b>{{detail['datetime_reserved']}}</b></p>
+          </div>
+          <div class="mb-4">
+            <label class="details-label">Date Collected: </label>
+            <p class="details-value tab"><b>{{detail['datetime_collected']}}</b></p>
+          </div>
+          <div class="mb-4">
+            <label class="details-label">Date Distributed: </label>
+            <p class="details-value tab"><b>{{detail['datetime_distributed']}}</b></p>
+          </div>
+          <div class="mb-4">
+            <label class="details-label">Number of Items: </label>
+            <p class="details-value tab"><b>{{detail['number_of_items']}}</b></p>
+          </div>
+          <div class="mb-4">
+            <label class="details-label">Location: </label>
+            <p class="details-value tab"><b>{{detail['location']}}</b></p>
+          </div>
+          <div class="mb-4">
+            <label class="details-label">Mode of Collection: </label>
+            <p class="details-value tab"><b>{{detail['transport_mode'].capitalize()}}</b></p>
+          </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

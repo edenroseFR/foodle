@@ -21,7 +21,6 @@ from .utils import (
     get_role,
 )
 
-
 @login_bp.route("/login", methods=["GET", "POST"])
 def login() -> str:
     form = LoginForm()

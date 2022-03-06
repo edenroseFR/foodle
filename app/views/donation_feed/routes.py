@@ -26,7 +26,7 @@ def posted_donations():
     posted_donations = get_posted_donations(session_email)
 
     return render_template(
-        "donor_donation_tabs/posted_donations.html",
+        "donation-feed/posted_donations.html",
         donor=donor_details,
         donations=posted_donations,
         donate_form=donate_form,
@@ -41,7 +41,7 @@ def reserved_donations():
     reserved_donations = get_reserved_donations(session_email)
 
     return render_template(
-        "donor_donation_tabs/reserved_donations.html",
+        "donation-feed/reserved_donations.html",
         donor=donor_details,
         donations=reserved_donations,
         donate_form=donate_form,
@@ -58,7 +58,7 @@ def collected_donations():
     donations = zip(collected_donations.items(), donation_details.items())
 
     return render_template(
-        "donor_donation_tabs/collected_donations.html",
+        "donation-feed/collected_donations.html",
         donor=donor_details,
         donations=donations,
         donate_form=donate_form,
@@ -82,7 +82,7 @@ def distributed_donations():
     )
 
     return render_template(
-        "donor_donation_tabs/distributed_donations.html",
+        "donation-feed/distributed_donations.html",
         donor=donor_details,
         donations=donations,
         donate_form=donate_form,

@@ -1,7 +1,7 @@
 from werkzeug.datastructures import FileStorage
 from werkzeug.security import generate_password_hash
-from app.models.user import User
-from app.models.donor import Donor
+from ...models.user import User
+from ...models.donor import Donor
 import cloudinary.uploader as cloud
 import base64
 from flask import session

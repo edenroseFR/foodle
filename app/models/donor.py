@@ -298,3 +298,15 @@ class Donor:
                         collector[6],
                     ]
         return collectors
+
+    @staticmethod
+    def get_parent_orgs(user_id):
+        query = f'''
+            select users.org_name from
+            members join users
+            on users.user_id=members.collector_id and members.user_id={user_id};
+        '''
+        cursor.execute(query)
+        parent_orgs = cursor.fetchall()
+        
+        return parent_orgs

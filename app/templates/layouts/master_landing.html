@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/sidebars/donor_sidebar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbars/donor_navbar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/dashboards/donor_dashboard.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/landing_page/landing_page.css')}}">
+</head>
+
+{% block logged %}
+{% if session['role'] == 'collector' %}
+    {% include "includes/navbars/collector_navbar.html" %}
+{% elif 'donor' in session['role'] %}
+    {% include "includes/navbars/donor_navbar.html" %}
+{% else %}
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+    <div class="container">
+        <h1><a href="#" class="navbar-brand">Foodle</a></h1>
+        <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navmenu"
+        >
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a href="#how-it-works" class="nav-link active">How It Works</a>
+            </li>
+            <li class="nav-item">
+                <a href="#where-it-goes" class="nav-link active">Where It Goes</a>
+            </li>
+            <li class="nav-item">
+                <a href="#organizations" class="nav-link active">Organizations</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+</nav>
+
+{% endif %}
+{% endblock %}
+
+<body>
+    <div class="fd-container">
+        <div class="container">
+
+        </div>
+    </div>
+    
+    <div>{% block content %}{% endblock %}</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

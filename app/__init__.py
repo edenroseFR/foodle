@@ -28,4 +28,8 @@ def create_app():
 
     app.register_blueprint(donate_bp)
 
+    from app.views.landing_page import landing_bp
+
+    app.register_blueprint(landing_bp)
+
     return app

@@ -1,5 +1,5 @@
-{% extends "donation-tabs/base.html" %}
-{% block title %} Posted Donations {% endblock title %}
+{% extends "donation-feed/base.html" %}
+{% block title %} Distributed Donations {% endblock title %}
 
 {% block css_link %} 
 
@@ -11,27 +11,27 @@
 
 {% block main_content %}
 <div id="donation-tabs-div">
-    <a href="{{url_for('donations.posted_donations')}}" role="button" class="btn btn-outline-success"> 
+    <a href="{{url_for('donation_feed.posted_donations')}}" role="button" class="btn btn-outline-success"> 
         <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226182/posted_klecqw.png" alt="" class="dashboard-btn-img" id="posted-btn">
         <span class= "text-center">Posted</span>
     </a>
-    <a href="{{url_for('donations.reserved_donations')}}" role="button" class="btn btn-outline-success">
+    <a href="{{url_for('donation_feed.reserved_donations')}}" role="button" class="btn btn-outline-success">
         <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226244/reserved_a2pqlz.png" alt="" class="dashboard-btn-img">
         <span class= "text-center">Reserved</span>
     </a>
-    <a href="{{url_for('donations.collected_donations')}}" role="button" class="btn btn-outline-success">
+    <a href="{{url_for('donation_feed.collected_donations')}}" role="button" class="btn btn-outline-success">
         <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226284/collected_iw6hoc.png" alt="" class="dashboard-btn-img">
         <span class= "text-center">Collected</span>
     </a>
-    <a href="{{url_for('donations.distributed_donations')}}" role="button" class="btn btn-outline-success">
+    <a href="{{url_for('donation_feed.distributed_donations')}}" role="button" class="btn btn-outline-success active">
         <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226302/distributed_q83a6h.png" alt="" class="dashboard-btn-img" width="10px" height="10px">
         <span class= "text-center">Distributed</span>
     </a>
 </div>
     <div id="donate-section" class="d-grid">
-        <button class="rounded-pill btn btn-outline-success text-start">Do you want to donate?</button>
+        <a href="{{url_for('donate.donate')}}" class="rounded-pill btn btn-success text-start">Do you want to donate?</a>
     </div>
-    <div>  {% include "includes/feeds/posted_donation_feed.html" %} </div>
+    <div>  {% include "includes/feeds/distributed_donation_feed.html" %} </div>
    
 {% endblock main_content %}
 

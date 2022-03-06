@@ -44,5 +44,3 @@ def unique_number(form, field):
     message = 'Phone Number already registered'
     if check_contact_registration(field.data) == True:
         raise ValidationError(message)
-
-
