@@ -21,6 +21,7 @@ from .utils import (
     get_role,
 )
 
+
 @login_bp.route("/login", methods=["GET", "POST"])
 def login() -> str:
     form = LoginForm()
@@ -33,7 +34,7 @@ def login() -> str:
             session["status"] = "logged-in"
             session["email_address"] = email_address
             if session["role"] == "collector":
-                return redirect(url_for("dashboard.collector_dashboard"))
+                return redirect(url_for("collectors_view.collectors_view"))
             else:
                 return redirect(url_for("donation_feed.posted_donations"))
         else:
@@ -41,7 +42,7 @@ def login() -> str:
             return render_template("/login/base.html", form=form, reg_form=reg_form)
     elif "email_address" in session:
         if session["role"] == "collector":
-            return redirect(url_for("dashboard.collector_dashboard"))
+            return redirect(url_for("collectors_view.collectors_view"))
         else:
             return redirect(url_for("donation_feed.posted_donations"))
     return render_template("/login/base.html", form=form, reg_form=reg_form)
