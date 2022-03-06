@@ -12,7 +12,7 @@ from .utils import (
     show_donation_items,
     add_donation,
     get_donation_details,
-    update_donation,
+    update_donation_util,
 )
 import datetime as dt
 
@@ -262,7 +262,8 @@ def update_donation():
         city = donate_form.city.data
         transport_mode = donate_form.transport_mode.data
         number_of_items = len(update_donation_added_items)
-        update_donation(
+
+        update_donation_util(
             session["donation_id"],
             update_donation_added_items,
             datetime,

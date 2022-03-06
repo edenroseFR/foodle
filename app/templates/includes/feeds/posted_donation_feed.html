@@ -70,10 +70,10 @@
             </div>
           
           <div class="d-grid gap-2 action">
-            <a href="{{url_for('donate.get_donation_items', id=donation) }}" class="btn btn-warning onclick="return confirm('Are you sure to delete this post?')">
+            <a href="{{url_for('donate.get_donation_items', id=donation) }}" class="btn btn-warning">
               <i class="bi bi-pencil-square"></i> Edit
             </a>
-            <a href="{{url_for('donation_feed.delete', id=donation)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete this post?')">
+            <a href="{{url_for('donation_feed.delete', id=donation)}}" class="btn btn-danger" onclick="confirm('Are you sure to delete this post?')">
               <i class="bi bi-trash"></i> Delete
             </a>
           </div>

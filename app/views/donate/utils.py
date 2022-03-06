@@ -52,7 +52,7 @@ def get_donation_details(donation_id):
     return details
 
 
-def update_donation(
+def update_donation_util(
     donation_id,
     update_donation_added_items,
     datetime,
@@ -62,7 +62,8 @@ def update_donation(
     barangay,
     city,
 ):
-    Donation.update_donation(
+    donation = Donation()
+    donation.update_donation(
         donation_id,
         update_donation_added_items,
         datetime,
