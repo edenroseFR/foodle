@@ -1,0 +1,59 @@
+<!-- Button trigger modal is the add item button-->
+<!-- Add item Modal -->
+<div class="modal fade" id="edit-donation-edit-item-modal{{loop.index}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Edit Item</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+  
+          <form class="row g-3" action="{{url_for('donate.update_donation_edit_item')}}" method="POST" enctype="multipart/form-data">
+            {{ item_form.hidden_tag() }}
+            {{ item_form.csrf_token() }}
+            <input hidden value="{{loop.index}}" name="temp_item_id">
+            <div class="mb-3">
+              <label for="category form-label">Category</label>
+              <select type="number" required=True class="form-control col" id="category" name="category">
+                {% for category in category_options %}
+                    {% if category[0] == item['category'] %}
+                      <option selected value="{{category[0]}}">{{category[1]}}</option>
+                    {% else %}
+                      <option value="{{category[0]}}">{{category[1]}}</option>
+                    {% endif %}
+                {% endfor %}
+              </select>
+              <!-- {{ item_form.category.label }}
+              {{ item_form.category(id='item_category', class='form-control', value=item['category']) }} -->
+            </div>
+            <div class="mb-3">
+              {{ item_form.quantity.label(class='form-label') }}
+              {{ item_form.quantity(id='item_quantity', class='form-control', value=item['quantity']) }}
+            </div>
+            <div class="mb-3">
+              <label for="category form-label">Unit</label>
+              <select type="number" required=True class="form-control col" id="unit" name="unit">
+                {% if item['unit'] == '1' %}
+                  <option value='1' selected>kilos</option>
+                  <option value='2'>liters</option>
+                {% else %}
+                  <option value='1'>kilos</option>
+                  <option value='2' selected>liters</option>
+                {% endif %}
+              </select>
+              <!-- {{ item_form.unit.label(class='form-label') }}
+              {{ item_form.unit(id='item_unit', class='form-control',value=item['unit']) }} -->
+            </div>
+            <div class="mb-3">
+              {{ item_form.item_photo.label(class='form-label')}}
+              {{ item_form.item_photo(id='item_photo', class='form-control', value=item['item_photo']) }}
+            </div>
+        </div>
+        <div class="modal-footer">
+          {{ item_form.edit_item_btn(id='edit_item_btn', class='form-control btn btn-warning') }}
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>

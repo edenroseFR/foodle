@@ -11,7 +11,7 @@
 
 {% block main_content %}
 <div id="donation-tabs-div">
-    <a href="{{url_for('donation_feed.posted_donations')}}" role="button" class="btn btn-outline-success"> 
+    <a href="{{url_for('donation_feed.posted_donations')}}" role="button" class="btn btn-outline-success active"> 
         <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226182/posted_klecqw.png" alt="" class="dashboard-btn-img" id="posted-btn">
         <span class= "text-center">Posted</span>
     </a>
@@ -29,7 +29,7 @@
     </a>
 </div>
     <div id="donate-section" class="d-grid">
-        <button class="rounded-pill btn btn-outline-success text-start">Do you want to donate?</button>
+        <a href="{{url_for('donate.donate')}}" class="rounded-pill btn btn-success text-start">Do you want to donate?</a>
     </div>
     <div>  {% include "includes/feeds/posted_donation_feed.html" %} </div>
    
