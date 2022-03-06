@@ -106,3 +106,43 @@ def parent_orgs():
     parents = Donor.get_parent_orgs(donor_details["user_id"])
 
     return parents
+
+def get_total_foods(session_email):
+    total_kilos = 0
+    donor= Donor()
+    kilos = donor.donation_stat_foods(session_email)
+    for item in kilos:
+        total_kilos += item[0]
+
+    return total_kilos
+
+def get_total_beverages(session_email):
+    total_liters = 0
+    donor= Donor()
+    liters = donor.donation_stat_beverages(session_email)
+    for item in liters:
+        total_liters += item[0]
+
+    return total_liters
+
+def get_total_food_distributed(session_email):
+    total_kilos = 0
+    donor= Donor()
+    kilos = donor.donation_stat_food_distributed(session_email)
+    for item in kilos:
+        total_kilos += item[0]
+
+    return total_kilos
+
+def get_total_bev_distributed(session_email):
+    total_liters = 0
+    donor= Donor()
+    liters = donor.donation_stat_bev_distributed(session_email)
+    for item in liters:
+        total_liters += item[0]
+
+    return total_liters
+
+def get_collectors(email_address):
+    collectors = Donor().get_collectors(email_address)
+    return collectors
