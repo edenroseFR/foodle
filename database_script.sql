@@ -64,7 +64,7 @@ CREATE TABLE `donations` (
   `street` varchar(100) NOT NULL,
   `barangay` varchar(100) NOT NULL,
   `city` varchar(100) NOT NULL,
-  `caption` TEXT NOT NULL,
+  `caption` TEXT,
   PRIMARY KEY (`donation_id`),
   KEY `donor_id` (`donor_id`),
   KEY `transport_mode` (`transport_mode`),
