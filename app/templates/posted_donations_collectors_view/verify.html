@@ -1,0 +1,82 @@
+{% extends "posted_donations_collectors_view/base.html" %}
+{% block title %}Posted Collectables{% endblock title %}
+
+{% block css_link %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/collector/collector_sidebar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/collector/collector_navbar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/collector/collected_donation.css')}}">
+{% endblock css_link%}
+
+{% block navbar %}
+    {% include "includes/navbars/collector_navbar.html" %}
+{% endblock navbar %}
+
+{% block main_content %}
+<div class="container-fluid verify-container">
+    <div class="row flex-nowrap">
+        {% include "includes/sidebars/collector_sidebar.html" %}
+
+    <!-- main content -->
+    <main class="col ps-md-2 pt-2" id="main-container-verification">  
+        <form class="flex justify-content-center my-5" action="{{url_for('collectors_view.confirm_donation', donation_id=collected)}}" method="POST">
+            <h1 id="header-verification">Verify Collection</h1>
+            <div class="row">
+                <div class="col sender">
+                    <div class="social-avatar-verify">
+                        <a href="#" style="text-decoration: none;">
+                            <div class="image-container">
+                                <div class="img-verify">
+                                    {% if details[3] %}
+                                    <img alt="image" src="{{details[3]}}" id="feed-profile-photo">
+                                    {% else %}
+                                    <img alt="image" src="https://res.cloudinary.com/deh9vgcga/image/upload/v1638884209/22-223968_default-profile-picture-circle-hd-png-download_ct3blj.png" id="feed-profile-photo">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" id='donor-name'>
+                            {{details[0]}} {{details[1]}} {{details[2]}}
+                        </a>
+                        <small class="text-muted d-flex">Date Posted: {{details[4]}}</small>
+                        <small class="text-muted d-flex">Mode of transport: {{details[8]}}</small>
+                        <small class="text-muted d-flex">Location: {{details[5]}}, {{details[6]}}, {{details[7]}}</small>
+                    </div>
+                </div>
+                <div class="col arrow">
+                    <img class="arrow-image" src="https://res.cloudinary.com/deh9vgcga/image/upload/v1639984646/arrow-right_ljxrfk.png" alt="">
+                </div>
+                <div class="col recievr">
+                    <div class="social-avatar-verify">
+                        <a href="#" style="text-decoration: none;">
+                            <div class="img-verify">
+                                {% if collector['image_link'] %}
+                                <img alt="image" src="{{collector['image_link']}}" id="feed-profile-photo">
+                                {% else %}
+                                <img alt="image" src="https://res.cloudinary.com/deh9vgcga/image/upload/v1638884209/22-223968_default-profile-picture-circle-hd-png-download_ct3blj.png" id="feed-profile-photo">
+                                {% endif %}
+                            </div>
+                        </a>
+                        <a href="#" id='donor-name'>
+                            {{collector['first_name']}} {{collector['middle_name']}} {{collector['last_name']}}
+                        </a>
+                        <small class="text-muted d-flex">Contact: {{collector['phone_number']}}</small>
+                        <small class="text-muted d-flex">Location: {{collector['street']}}, {{collector['barangay']}}, {{collector['city']}}</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row verify-buttons">
+                <button class="btn btn-success verify-button-inner">Proceed</button>
+                <small class="text-muted d-flex">
+                    If you wish to change your delivery details, please navigate to &nbsp;
+                    <a href="#">settings</a>
+                </small>
+            </div>
+
+           
+        </form>
+    </main>
+    </div>
+</div>
+
+
+{% endblock %}
