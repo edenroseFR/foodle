@@ -81,7 +81,7 @@ class Collector():
             to_distribute.append(item)
         return to_distribute
 
-    def get_donation_images(self, donation_id) -> list[str]:
+    def get_donation_images(self, donation_id):
         query = f'''
             SELECT item_img_url
             FROM items
@@ -236,7 +236,7 @@ class Collector():
         return completed
 
     @staticmethod
-    def save_distribution_images(donation_id: int, images: list[str]):
+    def save_distribution_images(donation_id: int, images):
         for image in images:
             if image != '':
                 query = f'''
@@ -247,7 +247,7 @@ class Collector():
                 db.commit()
         return None
 
-    def get_distribution_images(self, donation_id) -> list[str]:
+    def get_distribution_images(self, donation_id):
         query = f'''
             SELECT image_link
             FROM distribution_images

@@ -1,0 +1,58 @@
+{% extends "posted_donations_collectors_view/base.html" %}
+{% block title %}Posted Collectables{% endblock title %}
+
+<!-- external css links -->
+{% block css_link %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/collector/collector_sidebar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/collector/collector_navbar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/collector/collected_donation.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/dashboards/org_dashboard.css')}}">
+{% endblock css_link%}
+
+{% block navbar %}
+    {% include "includes/navbars/collector_navbar.html" %}
+
+{% endblock navbar %}
+
+{% block main_content %}
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        {% include "includes/sidebars/collector_sidebar.html" %}
+
+    <!-- main content -->
+    <main class="col ps-md-2 pt-2" id="main-container"> 
+        {% include "includes/alert/feedback_alert.html" %}
+
+        <section id="section2-main">
+                
+                <div class="actions row">
+                    <div class="to-collect-btn text-center action-btn col-lg-4">
+                        <a href="#" role="button" class="btn to-collect-card"> 
+                            <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226284/collected_iw6hoc.png" alt="" class="dashboard-btn-img" id="posted-btn">
+                            <h4 class= "text-center">To Receive</h4>
+                        </a>
+                    </div>
+                    <div class="to-distribute-btn text-center action-btn col-lg-4">
+                        <a href="#" role="button" class="btn to-distribute-card">
+                            <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226302/distributed_q83a6h.png" alt="" class="dashboard-btn-img">
+                            <h4 class= "text-center">To Distribute</h4>
+                        </a>
+                    </div>
+                    <div class="to-distribute-btn text-center action-btn col-lg-4">
+                        <a href="#" role="button" class="btn completed-card">
+                            <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642228184/completed_v8a0ev.png" alt="" class="dashboard-btn-img">
+                            <h4 class= "text-center">Completed</h4>
+                        </a>
+                    </div>
+                </div>
+                
+            </section>
+
+        {% include "includes/feeds/collectors_feed.html" %}
+       
+    </main>
+    </div>
+</div>
+{% endblock main_content %}
+{% block javascript_link %} <script src="{{ url_for('static', filename='js/alert_dismiss.js') }}"></script> {% endblock %}

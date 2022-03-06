@@ -16,16 +16,11 @@
           <h6 class="text-center">{{donor['first_name']}} {{donor['middle_name']}} {{donor['last_name']}}</h6>
           {% endif %}
           <ul class="list-unstyled components nav-item-list">
-            <li class="nav-item sidebar-item">
-              <a href="{{url_for('dashboard.collector_dashboard')}}" class="sidebar-link">
-                <i class="bi bi-house nav-item-icon"></i>
-                <span class="nav-item-label">Home</span>
-              </a>
-            </li>
+            
             <li class="nav-item sidebar-item">
               <a href="{{url_for('collectors_view.collectors_view')}}"  class="sidebar-link">
                 <i class="bi bi-basket nav-item-icon"></i>
-                <span class="nav-item-label">Posted Collectables</span>
+                <span class="nav-item-label">Posted Donations</span>
               </a>
             </li>
             <li class="nav-item sidebar-item">
@@ -41,13 +36,13 @@
                 </a>
             </li>
             <li class="nav-item sidebar-item">
-                <a href="{{url_for('dashboard.members')}}"  class="sidebar-link">
+                <a href="#"  class="sidebar-link">
                   <i class="bi bi-people-fill nav-item-icon"></i>
                   <span class="nav-item-label">Members</span>
                 </a>
             </li>
             <li class="nav-item sidebar-item">
-                <a href="{{url_for('settings.settings')}}"  class="sidebar-link">
+                <a href="#"  class="sidebar-link">
                   <i class="bi bi-gear nav-item-icon"></i>
                   <span class="nav-item-label">Settings</span>
                 </a>

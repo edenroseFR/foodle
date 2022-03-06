@@ -81,14 +81,17 @@
 .to-collect-btn  > .btn, .to-distribute-btn  > .btn {
    min-width: 250px;
    max-width: 320px;
+   display: flex;
+   align-items: center;
 }
 
 .dashboard-btn-img {
     float: center;
-    width:  100px;
-    height: 100px;
+    width:  50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 1rem;
 }
 
 /* events page */
@@ -147,6 +150,17 @@
 .to-distribute-card,
 .completed-card{
     background-color: white;
+    border: 1px solid #d9d9d9;
+    /*box-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 0px rgb(207, 207, 207), 0 0 5px rgb(104, 104, 104);*/
+    color: #198754;
+}
+
+.social-feed-box {
+    border: 1px solid #d5d5d5;
+    background: rgb(232, 232, 232);
+    padding: 8px;
+    border-radius: 5px;
+    /**/
     box-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(207, 207, 207), 0 0 5px rgb(104, 104, 104);
     color: #198754;
 }
