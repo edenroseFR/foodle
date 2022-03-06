@@ -248,15 +248,15 @@ class Collector():
         return None
 
     def get_distribution_images(self, donation_id) -> list[str]:
-    query = f'''
-        SELECT image_link
-        FROM distribution_images
-        WHERE donation_id = {donation_id}
-    '''
-    cursor.execute(query)
-    result = cursor.fetchall()
-    result = [str(img[0]) for img in result]
-    return result
+        query = f'''
+            SELECT image_link
+            FROM distribution_images
+            WHERE donation_id = {donation_id}
+        '''
+        cursor.execute(query)
+        result = cursor.fetchall()
+        result = [str(img[0]) for img in result]
+        return result
 
     @staticmethod
     def record_distribution(donation_id, collector_id, time_created):
