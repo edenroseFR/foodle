@@ -1,0 +1,41 @@
+{% extends "donation-tabs/base.html" %}
+{% block title %} Posted Donations {% endblock title %}
+
+{% block css_link %} 
+
+{% endblock %}
+
+{% block navbar %}
+    {% include "includes/navbars/donor_navbar.html" %}
+{% endblock navbar %}
+
+{% block main_content %}
+<div id="donation-tabs-div">
+    <a href="{{url_for('donations.posted_donations')}}" role="button" class="btn btn-outline-success"> 
+        <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226182/posted_klecqw.png" alt="" class="dashboard-btn-img" id="posted-btn">
+        <span class= "text-center">Posted</span>
+    </a>
+    <a href="{{url_for('donations.reserved_donations')}}" role="button" class="btn btn-outline-success">
+        <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226244/reserved_a2pqlz.png" alt="" class="dashboard-btn-img">
+        <span class= "text-center">Reserved</span>
+    </a>
+    <a href="{{url_for('donations.collected_donations')}}" role="button" class="btn btn-outline-success">
+        <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226284/collected_iw6hoc.png" alt="" class="dashboard-btn-img">
+        <span class= "text-center">Collected</span>
+    </a>
+    <a href="{{url_for('donations.distributed_donations')}}" role="button" class="btn btn-outline-success">
+        <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226302/distributed_q83a6h.png" alt="" class="dashboard-btn-img" width="10px" height="10px">
+        <span class= "text-center">Distributed</span>
+    </a>
+</div>
+    <div id="donate-section" class="d-grid">
+        <button class="rounded-pill btn btn-outline-success text-start">Do you want to donate?</button>
+    </div>
+    <div>  {% include "includes/feeds/posted_donation_feed.html" %} </div>
+   
+{% endblock main_content %}
+
+
+{% block javascript_link %} 
+{% endblock javascript_link %}
+

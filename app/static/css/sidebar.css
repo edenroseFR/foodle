@@ -1,0 +1,75 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(poppins.woff);
+}
+
+.sidebar-container {
+  background-color: #ffffff;
+}
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #ffffff;
+}
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+#sidebar ul li a:hover {
+  color: #ffff00;
+  background: #009900;
+}
+#sidebar .sidebar-item.active > .sidebar-link,
+.sidebar-link[aria-expanded="true"] {
+  color: #ffff00;
+  background: #009900;
+}
+/* sidebar image design */
+.profile-photo {
+  border-radius: 50%;
+}
+.sidebar-item a {
+  color: black;
+  text-decoration: none;
+}
+.app-name {
+  margin-left: 38px;
+  text-decoration: none;
+}
+.nav-item-label {
+  margin-left: 3px;
+}
+.nav-item-icon {
+  margin-left: 10px;
+}
+#menu-icon {
+  color: rgb(0, 0, 0);
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  line-height: 40px;
+  left: 850%;
+  transform: translateX(-50%);
+}
+#sidebar-nav {
+  width: 250px;
+  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.sidebar-container {
+  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.nav-app-name {
+  text-decoration: none;
+}
+
+/* sticky */
+
+.sidebar-sticky {
+  padding-top: 30% !important;
+}
