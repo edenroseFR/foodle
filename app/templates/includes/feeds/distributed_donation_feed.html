@@ -1,0 +1,87 @@
+
+<div id="post-container">
+   
+  {% if num_donation == 0 %}
+  <div class="empty-post-notice text-center">
+      <h5>You don't have any distributed donation yet.</h5>
+    
+  </div>
+  {% endif %}
+
+  {% for (donation_id,donation), (donation_id,detail), (donation_id,distribution_photo) in donations %}
+  <div class="social-feed-box"> 
+      <div class="social-avatar">
+          <a href="#" class="float-start" style="text-decoration: none;">
+              {% if donor['image_link'] %}
+              <img alt="image" src="{{donor['image_link']}}" id="feed-profile-photo">
+              {% else %}
+              <img alt="image" src="https://res.cloudinary.com/deh9vgcga/image/upload/v1638884209/22-223968_default-profile-picture-circle-hd-png-download_ct3blj.png" id="feed-profile-photo">
+              {% endif %}
+          </a>
+          <a href="#" id='donor-name' class="float-start">
+              {{donation['donor_name']}}
+          </a>
+          <br>
+          <small class="text-muted d-flex">Donor</small>
+          <small class="text-muted d-flex">Date Distributed: {{detail['datetime_collected']}}</small>
+          <small class="text-muted d-flex">Mode of transport: {{donation['transport_mode']}}</small>
+      </div>
+      <!-- <div class="social-body text-center"> -->
+          <div id="carouselExampleCaptions{{donation_id}}" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                {% for index in range (0, donation['items']|length) %}
+                {% if index == 0 %}
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                {% else %}
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{index}}" aria-label="Slide {{index}}"></button>
+                {% endif %}
+                {% endfor %}
+              </div>
+              <div class="carousel-inner">
+                  {% for img in range (0, donation['items']|length) %}
+                  {% if img == 0 %}
+                  <div class="carousel-item active">
+                    <img src="{{donation['items'][img][-1]}}" class="d-block w-100 carousel-item-img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>{{donation['items'][img][0]}}</h5>
+                      <p>{{donation['items'][img][1]}} {{donation['items'][img][2]}}</p>
+                    </div>
+                  </div>
+                  {% else %}
+                  <div class="carousel-item">
+                    <img src="{{donation['items'][img][-1]}}" class="d-block w-100 carousel-item-img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>{{donation['items'][img][0]}}</h5>
+                      <p>{{donation['items'][img][1]}} {{donation['items'][img][2]}}</p>
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions{{donation_id}}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions{{donation_id}}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          
+          {% include "includes/details_modal/distribution_photo_modal.html" %}
+          <!-- view details modal -->
+          {% include "includes/details_modal/distributed_view_details_modal.html" %}
+         
+          <div class="d-grid gap-2 action">
+              <a class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#view_details_modal{{loop.index}}">
+                  <i class="bi bi-card-text"></i> View Details
+              </a>
+              <a class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#distribution_photo_modal{{loop.index}}">
+                <i class="bi bi-eye-fill"></i> See Distribution Photos 
+            </a>
+          </div>
+    </div>
+    {% endfor %}
+</div>
+
+

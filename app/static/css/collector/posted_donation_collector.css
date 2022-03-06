@@ -1,0 +1,76 @@
+
+/* Social feed */
+
+.social-feed-separated .social-avatar {
+  float: left;
+  padding: 0;
+}
+
+.social-feed-separated .social-feed-box .social-avatar {
+  padding: 15px 15px 0 15px;
+  float: none;
+}
+.social-feed-box {
+  /*padding: 15px;*/
+  border: 1px solid #ffffff;
+  background: rgb(247, 247, 247);
+  margin-bottom: 15px;
+  float: center;
+  width: 100%;
+}
+.article .social-feed-box {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+.article .social-feed-box:last-child {
+  margin-bottom: 0;
+  border-bottom: 1px solid #e7eaec;
+}
+.article .social-feed-box p {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.social-avatar {
+  padding: 15px 15px 0 15px;
+}
+
+.social-avatar img {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+.social-avatar .media-body a {
+  font-size: 14px;
+  display: block;
+}
+.social-body {
+  padding: 15px;
+}
+.social-body img {
+  margin-bottom: 10px;
+  float: center;
+  width:  100%;
+  height: 60%;
+  object-fit: cover;
+  border: 1px solid #ffffff;
+  border-radius: 2%;
+}
+
+#donor-name {
+    text-decoration: none;
+}
+
+#feed-profile-photo{
+    border-radius: 50%;
+}
+#post-container {
+  width: 70%;
+  margin: 0% 10% 0% 10%;
+}
+
+
+.carousel-item-img{
+  height: 500px !important;
+  object-fit: cover !important;
+}
