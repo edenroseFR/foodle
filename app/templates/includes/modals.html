@@ -1,0 +1,326 @@
+
+<!-- choose user type -->
+<div class="modal fade" id="choose-role"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-content-00">
+            <div class="modal-header">
+                <div class="d-flex">
+                    <h5>Register as</h5>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-00">
+                <div class="roles">
+                    <button class="btn btn-primary" data-bs-target="#donor-registration" data-bs-toggle="modal" data-bs-dismiss="modal">Donor</button>
+                    <button class="btn btn-primary" data-bs-target="#collector-registration" data-bs-toggle="modal" data-bs-dismiss="modal">Collector</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Donor registration -->
+<div class="modal fade" id="donor-registration"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content modal-content-00">
+            <div class="modal-header">
+                <div class="d-flex">
+                    <h5>What type of donor are you?</h5>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-00">
+                <div class="roles">
+                    <button class="btn btn-primary" data-bs-target="#indiv-donor-registration" data-bs-toggle="modal" data-bs-dismiss="modal">Individual</button>
+                    <button class="btn btn-primary" data-bs-target="#org-donor-registration" data-bs-toggle="modal" data-bs-dismiss="modal">Organization</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-bs-target="#choose-role" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Collector registration -->
+<div class="modal fade" id="collector-registration" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="">
+                    <h5>Registration</h5>
+                    <p class="text-muted">* Indicates required.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <form action="{{ url_for('login.register') }}" class="needs-validation" method="post">
+                        {{ reg_form.hidden_tag() }}
+                        {{ reg_form.csrf_token() }}
+                        <div class="mb-3">
+                            <label for="type">Account Type: </label>
+                            <input type="text" id="type" name="type" value="Collector" readonly>
+                            <input type="text" id="account_type" name="account_type" value="collector" readonly hidden>
+                        </div>
+                        <p class="text-muted">Admin Information</p>
+                        <br>
+                        <div class="mb-3">
+                            {{ reg_form.first_name.label }}
+                            {{ reg_form.first_name(id='first_name', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.middle_name.label }}
+                            {{ reg_form.middle_name(id='middle_name', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.last_name.label }}
+                            {{ reg_form.last_name(id='last_name', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.phone_number.label }}
+                            {{ reg_form.phone_number(id='phone_number', class='form-control') }}
+                        </div>
+                        <br>
+                        <p class="text-muted">Address</p>
+                        <br>
+                        <div class="mb-3">
+                            {{ reg_form.street.label }}
+                            {{ reg_form.street(id='street', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.barangay.label }}
+                            {{ reg_form.barangay(id='barangay', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.city.label }}
+                            {{ reg_form.city(id='city', class='form-control') }}
+                        </div>
+                        <br>
+                        <p class="text-muted">Organization</p>
+                        <br>
+                        <div class="mb-3">
+                            {{ reg_form.org_name.label }}
+                            {{ reg_form.org_name(id='org_name', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.about.label }}
+                            {{ reg_form.about(id='about', class='form-control', placeholder="Let the donors know why you signed up.") }}
+                        </div>
+                        <br>
+                        <p class="text-muted">Login Credentials</p>
+                        <br>
+                        <div class="mb-3">
+                            {{ reg_form.email_address.label }}
+                            {{ reg_form.email_address(id='email_address', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.password.label }}
+                            {{ reg_form.password(id='password', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.confirm_password.label }}
+                            {{ reg_form.confirm_password(id='confirm_password', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.submit(id='email_address', class='form-control btn btn-primary') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-bs-target="#choose-role" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Indiv-donor registration -->
+<div class="modal fade" id="indiv-donor-registration" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="">
+                    <h5>Registration</h5>
+                    <p class="text-muted">* Indicates required.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <form action="{{ url_for('login.register') }}" class="needs-validation" method="post">
+                        {{ reg_form.hidden_tag() }}
+                        {{ reg_form.csrf_token() }}
+                        <div class="mb-3">
+                            <label for="type">Account Type: </label>
+                            <input type="text" id="type" name="type" value="Individual Donor" readonly>
+                            <input type="text" id="account_type" name="account_type" value="indiv-donor" readonly hidden>
+                            <input type="text" id="org_name" name="org_name" readonly hidden>
+                            <input type="text" id="about"  name="about" readonly hidden>
+                        </div>
+                        <p class="text-muted">Personal Information</p>
+                        <br>
+                        <div class="mb-3">
+                            {{ reg_form.first_name.label }}
+                            {{ reg_form.first_name(id='first_name', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.middle_name.label }}
+                            {{ reg_form.middle_name(id='middle_name', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.last_name.label }}
+                            {{ reg_form.last_name(id='last_name', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.phone_number.label }}
+                            {{ reg_form.phone_number(id='phone_number', class='form-control') }}
+                        </div>
+                        <br>
+                        <p class="text-muted">Address</p>
+                        <br>
+                        <div class="mb-3">
+                            {{ reg_form.street.label }}
+                            {{ reg_form.street(id='street', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.barangay.label }}
+                            {{ reg_form.barangay(id='barangay', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.city.label }}
+                            {{ reg_form.city(id='city', class='form-control') }}
+                        </div>
+                        <br>
+                        <p class="text-muted">Login Credentials</p>
+                        <br>
+                        <div class="mb-3">
+                            {{ reg_form.email_address.label }}
+                            {{ reg_form.email_address(id='email_address', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.password.label }}
+                            {{ reg_form.password(id='password', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.confirm_password.label }}
+                            {{ reg_form.confirm_password(id='confirm_password', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.submit(id='email_address', class='form-control btn btn-primary') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-bs-target="#donor-registration" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Org-donor registration -->
+<div class="modal fade" id="org-donor-registration" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="">
+                    <h5>Registration</h5>
+                    <p class="text-muted">* Indicates required.</p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <form action="{{ url_for('login.register') }}" class="needs-validation" method="post">
+                        {{ reg_form.hidden_tag() }}
+                        {{ reg_form.csrf_token() }}
+                        <div class="mb-3">
+                            <label for="type">Account Type: </label>
+                            <input type="text" id="type" name="type" value="Organization Donor" readonly>
+                            <input type="text" id="account_type" name="account_type" value="org-donor" readonly hidden>
+                        </div>
+                        <p class="text-muted">Admin Information</p>
+                        <br>
+                        <div class="mb-3">
+                            {{ reg_form.first_name.label }}
+                            {{ reg_form.first_name(id='first_name', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.middle_name.label }}
+                            {{ reg_form.middle_name(id='middle_name', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.last_name.label }}
+                            {{ reg_form.last_name(id='last_name', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.phone_number.label }}
+                            {{ reg_form.phone_number(id='phone_number', class='form-control') }}
+                        </div>
+                        <br>
+                        <p class="text-muted">Address</p>
+                        <br>
+                        <div class="mb-3">
+                            {{ reg_form.street.label }}
+                            {{ reg_form.street(id='street', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.barangay.label }}
+                            {{ reg_form.barangay(id='barangay', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.city.label }}
+                            {{ reg_form.city(id='city', class='form-control') }}
+                        </div>
+                        <br>
+                        <p class="text-muted">Organization</p>
+                        <br>
+                        <div class="mb-3">
+                            {{ reg_form.org_name.label }}
+                            {{ reg_form.org_name(id='org_name', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.about.label }}
+                            {{ reg_form.about(id='about', class='form-control', placeholder="You can type here the reason why you signed up.") }}
+                        </div>
+                        <br>
+                        <p class="text-muted">Login Credentials</p>
+                        <br>
+                        <div class="mb-3">
+                            {{ reg_form.email_address.label }}
+                            {{ reg_form.email_address(id='email_address', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.password.label }}
+                            {{ reg_form.password(id='password', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.confirm_password.label }}
+                            {{ reg_form.confirm_password(id='confirm_password', class='form-control') }}
+                        </div>
+                        <div class="mb-3">
+                            {{ reg_form.submit(id='email_address', class='form-control btn btn-primary') }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-bs-target="#donor-registration" data-bs-toggle="modal" data-bs-dismiss="modal">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
