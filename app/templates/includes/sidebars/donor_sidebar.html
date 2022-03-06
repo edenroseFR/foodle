@@ -22,21 +22,15 @@
           {% endif %}
           <ul class="list-unstyled components nav-item-list">
             <li class="nav-item sidebar-item">
-              <a href="/donor/dashboard" class="sidebar-link">
-                <i class="bi bi-house nav-item-icon"></i>
-                <span class="nav-item-label">Home</span>
-              </a>
-            </li>
-            <li class="nav-item sidebar-item">
-              <a href="/donor/donate"  class="sidebar-link">
+              <a href="{{url_for('donation_feed.posted_donations')}}"  class="sidebar-link">
                 <i class="bi bi-basket nav-item-icon"></i>
-                <span class="nav-item-label">Donate</span>
+                <span class="nav-item-label">Donations</span>
               </a>
             </li>
             <li class="nav-item sidebar-item">
-              <a href="{{url_for('my_donations.posted_donations')}}"  class="sidebar-link">
+              <a href="{{url_for('donate.donate')}}"  class="sidebar-link">
                 <i class="bi bi-box-seam nav-item-icon"></i>
-                <span class="nav-item-label">Donations</span>
+                <span class="nav-item-label">Donate</span>
               </a>
             </li>
             <li class="nav-item sidebar-item">
@@ -46,31 +40,31 @@
               </a>
             </li>
             <li class="nav-item sidebar-item">
-                <a href="{{ url_for('my_profile.index') }}"  class="sidebar-link">
+                <a href="{{url_for('my_profile.index')}}"  class="sidebar-link">
                   <i class="bi bi-person nav-item-icon"></i>
                   <span class="nav-item-label">Profile</span>
                 </a>
             </li>
             <li class="nav-item sidebar-item">
-                <a href="{{ url_for('organization.index') }}"  class="sidebar-link">
+                <a href="#"  class="sidebar-link">
                   <i class="bi bi-people-fill nav-item-icon"></i>
                   <span class="nav-item-label">Organizations</span>
                 </a>
             </li>
             <li class="nav-item sidebar-item">
-                <a href="{{ url_for('dashboard.invitations') }}"  class="sidebar-link">
+                <a href="#"  class="sidebar-link">
                   <i class="bi bi-envelope nav-item-icon"></i>
                   <span class="nav-item-label">Invitations</span>
                 </a>
             </li>
             <li class="nav-item sidebar-item">
-                <a href="{{ url_for('settings.settings') }}"  class="sidebar-link">
+                <a href="#"  class="sidebar-link">
                   <i class="bi bi-gear nav-item-icon"></i>
                   <span class="nav-item-label">Settings</span>
                 </a>
             </li>
             <li class="nav-item sidebar-item">
-                <a href="{{ url_for('login.logout') }}" class="sidebar-link">
+                <a href="{{url_for('login.logout')}}" class="sidebar-link">
                   <i class="bi bi-power nav-item-icon"></i>
                   <span class="nav-item-label">Logout</span>
                 </a>

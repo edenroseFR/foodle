@@ -1,159 +1,163 @@
 #main-container {
-    margin-top: 6%;
-    background-color: #ffffff;
+  margin-top: 6%;
+  background-color: #ffffff;
 }
-#section0-main{
-    background-color: rgb(255, 255, 255);
-    width: 90%;
-    text-align: center;
-    margin: 0 0 0 60px;
+#section0-main {
+  background-color: rgb(255, 255, 255);
+  width: 90%;
+  text-align: center;
+  margin: 0 0 0 60px;
 }
-#section1-main{
-    margin: 50px 50px 0px 60px; /* top right bottom left */
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    justify-content: stretch;  
-    column-gap: 10px;
+#section1-main {
+  margin: 50px 50px 0px 60px; /* top right bottom left */
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: stretch;
+  column-gap: 10px;
 }
-#section2-main{
-    margin: 50px 50px 0px 60px; /* top right bottom left */
-    margin-top: 20px;
-    background-color: rgb(255, 255, 255);
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 2%;
+#section2-main {
+  margin: 50px 50px 0px 60px; /* top right bottom left */
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255);
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2%;
 }
 #section3-main ul {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    flex-direction: column;
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 #section3-main ul a {
-    padding: 20px;
-    /*border: 1px solid #198754;*/
-    border-radius: .25rem;
-    margin-bottom: 5px;
-    text-align: left;
-    display: flex;
-    align-items: center;
+  padding: 20px;
+  /*border: 1px solid #198754;*/
+  border-radius: 0.25rem;
+  margin-bottom: 5px;
+  text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 #section3-main ul a img {
-    border-radius: 100%;
-    margin-right: 20px;
-    width: 50px;
-    height: 50px;
+  border-radius: 100%;
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
 }
 
 #section3-main h2 {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
-#your-donation-title, #donation-stat-title {
-    grid-area: 1 / 1 / span 1 / span 3;
-    padding-left: 32px;
+#your-donation-title,
+#donation-stat-title {
+  grid-area: 1 / 1 / span 1 / span 3;
+  padding-left: 32px;
 }
 #your-collector-title {
-    grid-area: 1 / 1 / span 1 / span 3;
-    padding-left: 32px;
+  grid-area: 1 / 1 / span 1 / span 3;
+  padding-left: 32px;
 }
-.posted-btn > a > img, .inprogress-btn > a > img , .distributed-btn > a > img {
-    border-radius: 100%;
-    object-fit:scale-down;
+.posted-btn > a > img,
+.inprogress-btn > a > img,
+.distributed-btn > a > img {
+  border-radius: 100%;
+  object-fit: scale-down;
 }
-.inprogress-btn  > .btn, .distributed-btn  > .btn{
-   min-width: 80%;
-   /* max-width: 320px; */
+.inprogress-btn > .btn,
+.distributed-btn > .btn {
+  min-width: 80%;
+  /* max-width: 320px; */
 }
-.posted-btn  > .btn,
-.reserved-btn  > .btn,
-.collected-btn  > .btn,
-.distributed-btn  > .btn{
-    min-width: 100%;
-    border: none;
-    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.25);
+.posted-btn > .btn,
+.reserved-btn > .btn,
+.collected-btn > .btn,
+.distributed-btn > .btn {
+  min-width: 100%;
+  border: none;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.25);
 }
 .dashboard-btn-img {
-    float: center;
-    width:  100px;
-    height: 100px;
-    object-fit: cover;
+  float: center;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
 }
 #dashboard-donate-btn {
-    grid-area: 1 / 3;
-    margin: 0px 10px    ;    
-} 
+  grid-area: 1 / 3;
+  margin: 0px 10px;
+}
 .your-collector {
-    width: 100%;
-    border-radius: 10%;
-    border-color: #009000;
-    margin-left: 32px;
+  width: 100%;
+  border-radius: 10%;
+  border-color: #009000;
+  margin-left: 32px;
 }
-.fas{
-    color: #009000;
+.fas {
+  color: #009000;
 }
-.fas:hover{
-    color: #ffff00;  
+.fas:hover {
+  color: #ffff00;
 }
-#section3-main{
-    margin: 50px 50px 0px 60px; /* top right bottom left */
-    margin-top: 30px;
-    background-color: rgb(255, 255, 255); 
-    /* column-gap: 10px; */
-    padding: 20px;
-    padding-top: 1px;
-}
-
-.collector-item{
-    background-color: #198754;
-    border: 2px solid rgb(255, 255, 255);
-    box-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(207, 207, 207), 0 0 5px rgb(104, 104, 104);
-}
-.collector-name{
-    color: white;
-}
-#collectors-header{
-    margin-top: 5%;
-    font-size: large;
-}
-#section0-main{
-    grid-template-columns: auto 1.5fr auto;
-    text-align: center;
-    margin-top: 1%;
-    margin-bottom: 50px;
+#section3-main {
+  margin: 50px 50px 0px 60px; /* top right bottom left */
+  margin-top: 30px;
+  background-color: rgb(255, 255, 255);
+  /* column-gap: 10px; */
+  padding: 20px;
+  padding-top: 1px;
 }
 
-.greetings-container{
-    background-color: white;
-    border: 1px solid rgb(236, 212, 0);
-    border-radius: 20px;
-    height: 190px;
+.collector-item {
+  background-color: #198754;
+  border: 2px solid rgb(255, 255, 255);
+  box-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(207, 207, 207),
+    0 0 5px rgb(104, 104, 104);
+}
+.collector-name {
+  color: white;
+}
+#collectors-header {
+  margin-top: 5%;
+  font-size: large;
+}
+#section0-main {
+  grid-template-columns: auto 1.5fr auto;
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 50px;
+}
 
+.greetings-container {
+  background-color: white;
+  border: 1px solid rgb(236, 212, 0);
+  border-radius: 20px;
+  height: 190px;
 }
-.greetings-container > .row > .text{
-    text-align: left;
-    margin: 25px;
+.greetings-container > .row > .text {
+  text-align: left;
+  margin: 25px;
 }
-.greetings-container > .row > .text > .info{
-    font-weight: 200;
-    font-size:medium;
+.greetings-container > .row > .text > .info {
+  font-weight: 200;
+  font-size: medium;
 }
-.greetings-container > .row > .text > .share-text{
-    padding-top: 10px;
-    color: green;
+.greetings-container > .row > .text > .share-text {
+  padding-top: 10px;
+  color: green;
 }
 .greetings-container > .row > .image {
-    justify-content: center;
-    display: flex;
-    height: 190px;
-    width: 100%;
+  justify-content: center;
+  display: flex;
+  height: 190px;
+  width: 100%;
 }
-.greetings-container > .row > .image > img{
-    border-radius: 0px 20px 20px 0px;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.greetings-container > .row > .image > img {
+  border-radius: 0px 20px 20px 0px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }

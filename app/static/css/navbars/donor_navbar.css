@@ -1,63 +1,62 @@
-header {   
-    background-color: white !important;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 10%;
-    z-index:100;
-    float: center;
-
+header {
+  background-color: white !important;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10%;
+  z-index: 100;
+  float: center;
 }
-nav{
-    position: absolute;
-    background-color: white !important;
+nav {
+  position: absolute;
+  background-color: white !important;
 }
 .nav-link > .bi {
-    text-decoration: none;
-    align-self: center;
-    color: #009900;
-    font-size: 20px;
+  text-decoration: none;
+  align-self: center;
+  color: #009900;
+  font-size: 20px;
 }
 
 .nav-app-brand {
-    justify-self: start;
-    margin-left: 60px;
+  justify-self: start;
+  margin-left: 60px;
 }
 
 .profile-container {
-    border-left: 1px solid black;
+  border-left: 1px solid black;
 }
 .profile-photo {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .nav-item > a {
-    font-size: large;
+  font-size: large;
 }
-#FO{
-    color: #009900;
+#FO {
+  color: #009900;
 }
-#DO{
-    color:#ffff00;
+#DO {
+  color: #ffff00;
 }
 
-#sidebar-menu{
-    width: 60;
-    height: 60;
+#sidebar-menu {
+  width: 60;
+  height: 60;
 }
 
 .nav-icon {
-    font-size: 25px;
+  font-size: 25px;
 }
 #nav-icon-container {
-    margin-left: 50px;
+  margin-left: 50px;
 }
 
-.bi:hover{
-    color: #ffff00;  
+.bi:hover {
+  color: #ffff00;
 }
 
 .nav-link.active {
-    color: #ffff00;
+  color: #ffff00;
 }
