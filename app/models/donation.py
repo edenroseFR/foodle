@@ -326,7 +326,7 @@ class Donation:
             db.commit()
 
     def update_donation(
-        cls,
+        self,
         donation_id,
         added_items,
         today_datetime,
@@ -336,8 +336,8 @@ class Donation:
         barangay,
         city,
     ):
-        cls.delete_items(donation_id)
-        cls.update_items(donation_id, added_items)
+        self.delete_items(donation_id)
+        self.update_items(donation_id, added_items)
 
         query = f"""UPDATE donations SET datetime_created = %s , transport_mode = %s, number_of_items = %s , 
                     street = %s, barangay = %s, city = %s WHERE donation_id = %s """
