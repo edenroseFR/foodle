@@ -1,5 +1,5 @@
 {% extends "donation-feed/base.html" %}
-{% block title %} Posted Donations {% endblock title %}
+{% block title %} Collected Donations {% endblock title %}
 
 {% block css_link %} 
 
@@ -19,7 +19,7 @@
         <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226244/reserved_a2pqlz.png" alt="" class="dashboard-btn-img">
         <span class= "text-center">Reserved</span>
     </a>
-    <a href="{{url_for('donation_feed.collected_donations')}}" role="button" class="btn btn-outline-success">
+    <a href="{{url_for('donation_feed.collected_donations')}}" role="button" class="btn btn-outline-success active">
         <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226284/collected_iw6hoc.png" alt="" class="dashboard-btn-img">
         <span class= "text-center">Collected</span>
     </a>
@@ -28,7 +28,10 @@
         <span class= "text-center">Distributed</span>
     </a>
 </div>
-    <div>  {% include "includes/feeds/posted_donation_feed.html" %} </div>
+    <div id="donate-section" class="d-grid">
+        <a href="{{url_for('donate.donate')}}" class="rounded-pill btn btn-success text-start">Do you want to donate?</a>
+    </div>
+    <div>  {% include "includes/feeds/collected_donation_feed.html" %} </div>
    
 {% endblock main_content %}
 

@@ -1,0 +1,144 @@
+{% extends "donate/base.html" %}
+{% block title %}Donor Dashboard{% endblock title %}
+
+<!-- external css links -->
+{% block css_link %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/sidebars/donor_sidebar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbars/donor_navbar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/donate/donate.css')}}">
+{% endblock css_link%}
+
+{% block navbar %}
+    {% include "includes/navbars/donor_navbar.html" %}
+{% endblock navbar %}
+
+{% block main_content %}
+
+<!-- #form modals (Donation Details form and Add Item forms) -->
+{% include "donate/add_item_modal.html" %}
+{% include "donate/donation_details_modal.html" %}
+
+<!-- sidebar and main content must be inside div class="container-fluid" and div class="row flex-nowrap",
+so that if we collapse the sidebar it pushes the content -->
+<div class="container-fluid">
+    <div class="row">
+        {% if donor["user_role"] == 5 %}
+            {% include "includes/sidebars/org_donor_sidebar.html" %}
+        {% else %}
+            {% include "includes/sidebars/donor_sidebar.html" %}
+        {% endif %}
+        <!-- main content -->
+        <main class="col ps-md-2 pt-2" id="main-container">
+            
+            <section id="section0-main">
+                <h1 class="text-center">Donate</h1>
+            </section>
+
+            <section id="section1-main">
+                <h2 id="item-label" class="text-start">Items</h2>
+                <div id="add-item-btn" class="text-end">
+                    {% if num_items == 5 %}
+                        <button disabled = 'true' type="button" 
+                        class="text-center btn btn-outline-success" data-bs-toggle="modal" 
+                        data-bs-target="#add-item-modal">
+                            <i class="fas fa-plus"></i>
+                            Add Item
+                        </button>
+                    {% else %}
+                        <button type="button" 
+                        class="text-center btn btn-outline-success" data-bs-toggle="modal" 
+                        data-bs-target="#add-item-modal">
+                            <i class="fas fa-plus"></i>
+                            Add Item
+                        </button> 
+                    {% endif %}                  
+                </div>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">No.</th>
+                            <th scope="col" class="text-center">Image</th>
+                            <th scope="col" class="text-center">Category</th>
+                            <th scope="col" class="text-center">Quantity</th>
+                            <th scope="col" class="text-center">Unit</th>
+                            <th scope="col" class="text-center">Action</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% if num_items == 0 %}
+                            <td colspan="6" class="text-center text-muted">
+                                <button type="button" class="text-center btn btn-outline-secondary" 
+                                data-bs-toggle="modal" data-bs-target="#add-item-modal">
+                                    <i class="fas fa-plus"></i>
+                                    Add Item
+                                </button>
+                            </td>
+                        {% endif %}
+
+                        {% for item in added_items %}
+                        {% include "donate/edit_item_modal.html" %}
+                        <tr>
+                            <td scope="row" class="text-center">{{loop.index}}</td>
+                            <td class="text-center">
+                                <a href="{{ item['item_photo'] }}" target="_blank">
+                                    <img class="item-img" src="{{ item['item_photo'] }}" 
+                                    alt="Item photo" width="60" height="60">
+                                </a>
+                            </td>
+                            {% if item['category'] == 1 %} 
+                                <td class="text-center">Fruit and vegetables</td>
+                            {% elif item['category'] == 2 %} 
+                                <td class="text-center">Starchy food</td>
+                            {% elif item['category'] == 3 %} 
+                                <td class="text-center">Dairy</td>
+                            {% elif item['category'] == 4 %} 
+                                <td class="text-center">Protein</td>
+                            {% else %} 
+                                <td class="text-center">Fat</td>
+                            {% endif %}
+                            <td class="text-center">{{ item['quantity'] }}</td>
+                            {% if item['unit']  == '1' %}
+                                <td class="text-center">Kilos</td>
+                            {% else %} 
+                                <td class="text-center">Liters</td>
+                            {% endif %}
+                         
+                            <td class="text-center">
+                                <a href="#" class="btn btn-warning btn-sm px-3" data-bs-toggle="modal" data-bs-target="#edit-item-modal{{loop.index}}">
+                                    <i class="bi bi-pencil-square"></i>
+                                    Edit
+                                </a>
+                                <a class="mx-1"></a>
+                                <form hidden id="temp_item_id{{loop.index}}" action="{{url_for('donate.delete_item')}}" 
+                                method="POST">
+                                    <input hidden value="{{loop.index}}" name="temp_item_id">
+                                </form>
+                                <button type="submit"  form="temp_item_id{{loop.index}}" class="btn btn-danger btn-sm px-3" onclick="return confirm('Are you sure to delete?')">
+                                    <i class="bi bi-person-dash"></i>
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="d-grid gap-2" id="donate-btn">
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#donation-details-modal">
+                        <h5>
+                        <i class="bi bi-basket-fill"></i>
+                        Donate  
+                        </h5>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+
+{% endblock main_content %}
+
+{% block javascript_link %} 
+<script src="{{ url_for('static', filename='js/donor_sidebar.js') }}"></script>
+
+{% endblock javascript_link %}

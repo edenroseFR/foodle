@@ -1,0 +1,39 @@
+<!-- Button trigger modal is the add item button-->
+<!-- Add item Modal -->
+<div class="modal fade" id="edit-add-item-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add Item</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <form class="row g-3" action="{{url_for('donate.update_donation_add_item')}}" method="POST" enctype="multipart/form-data">
+            {{ item_form.hidden_tag() }}
+            {{ item_form.csrf_token() }}
+            <div class="mb-3">
+              {{ item_form.category.label(class='form-label') }}
+              {{ item_form.category(id='item_category', class='form-control') }}
+            </div>
+            <div class="mb-3">
+              {{ item_form.quantity.label(class='form-label') }}
+              {{ item_form.quantity(id='item_quantity', class='form-control') }}
+            </div>
+            <div class="mb-3">
+              {{ item_form.unit.label(class='form-label') }}
+              {{ item_form.unit(id='item_unit', class='form-control') }}
+            </div>
+            <div class="mb-3">
+              {{ item_form.item_photo.label(class='form-label') }}
+              {{ item_form.item_photo(id='item_photo', class='form-control') }}
+            </div>
+         
+        </div>
+        <div class="modal-footer">
+          {{ item_form.add_item_btn(id='add_item_btn', class='form-control btn btn-success') }}
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>

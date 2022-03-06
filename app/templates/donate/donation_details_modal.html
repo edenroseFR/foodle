@@ -1,0 +1,41 @@
+<!-- Button trigger modal is the add item button-->
+<!-- Add item Modal -->
+<div class="modal fade" id="donation-details-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="staticBackdropLabel">Donation Details</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3" action="{{url_for('donate.donate_donation')}}" method="POST" enctype="multipart/form-data">
+            {{ donate_form.hidden_tag() }}
+            {{ donate_form.csrf_token() }}
+            <br>
+                <p class="text-muted">Location</p>
+            <div class="mb-3">
+                {{ donate_form.street.label(class='form-label') }}
+                {{ donate_form.street(id='street', class='form-control') }}
+            </div>
+            <div class="mb-3">
+                {{ donate_form.barangay.label(class='form-label') }}
+                {{ donate_form.barangay(id='barangay', class='form-control') }}
+            </div>
+            <div class="mb-3">
+                {{ donate_form.city.label(class='form-label') }}
+                {{ donate_form.city(id='city', class='form-control') }}
+            </div>
+            <br>
+                <p class="text-muted">Mode of Transport</p>
+            <div class="mb-3">
+                {{ donate_form.transport_mode.label(class='form-label') }}
+                {{ donate_form.transport_mode(id='transport_mode', class='form-control') }}
+            </div>
+          </div>
+          <div class="modal-footer">
+            {{ donate_form.donate_btn(id='donate_btn', class='form-control btn btn-success') }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
