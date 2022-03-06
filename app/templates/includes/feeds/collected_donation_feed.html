@@ -19,13 +19,13 @@
                 <img alt="image" src="https://res.cloudinary.com/deh9vgcga/image/upload/v1638884209/22-223968_default-profile-picture-circle-hd-png-download_ct3blj.png" id="feed-profile-photo">
                 {% endif %}
             </a>
-            <a href="#" id='donor-name' class="float-start">
+            <a href="#" id='donor-name' class="float-start text-primary">
                 {{donation['donor_name']}}
             </a>
             <br>
-            <small class="text-muted d-flex">Donor</small>
-            <small class="text-muted d-flex">Date Collected: {{detail['datetime_collected']}}</small>
-            <small class="text-muted d-flex">Mode of transport: {{donation['transport_mode']}}</small>
+            <small class="text-dark d-flex">Donor</small>
+            <small class="text-dark d-flex">Date Collected: {{detail['datetime_collected']}}</small>
+            <small class="text-dark d-flex">Mode of transport: {{donation['transport_mode']}}</small>
         </div>
         <!-- <div class="social-body text-center"> -->
             <div id="carouselExampleCaptions{{donation_id}}" class="carousel slide" data-bs-ride="carousel">
@@ -76,6 +76,7 @@
                 <a class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#view_details_modal{{loop.index}}">
                     <i class="bi bi-card-text"></i> View Details
                 </a>
+
               <!-- <button class="btn btn-primary" type="button">Button</button> -->
             </div>
             <!-- <div class="flex action">
