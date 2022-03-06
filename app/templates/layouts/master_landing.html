@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/sidebars/donor_sidebar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbars/donor_navbar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/dashboards/donor_dashboard.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/landing_page/landing_page.css')}}">
 </head>
 
 {% block logged %}
@@ -20,30 +21,35 @@
 {% elif 'donor' in session['role'] %}
     {% include "includes/navbars/donor_navbar.html" %}
 {% else %}
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+    <div class="container">
+        <h1><a href="#" class="navbar-brand">Foodle</a></h1>
+        <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navmenu"
+        >
+        <span class="navbar-toggler-icon"></span>
         </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <a href="{{url_for('landing.landing')}}" style="text-decoration: none;"><h3><span id="FO">FO</span><span id="DO">DO</span></h3></a>
+
+        <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ url_for('landing.landing', request_for='organizations') }}#organizations">ORGANIZATION</a>
+                <a href="#how-it-works" class="nav-link active">How It Works</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ url_for('landing.landing', request_for='learn') }}#learn">HOW IT WORKS</a>
+                <a href="#where-it-goes" class="nav-link active">Where It Goes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{ url_for('landing.landing', request_for='where_it_goes') }}#where_it_goes">WHERE IT GOES</a>
+                <a href="#organizations" class="nav-link active">Organizations</a>
             </li>
         </ul>
-        {% block nav %}
-        {% include "includes/nav_user.html" %}
-        {% endblock %}
+        </div>
     </div>
 </nav>
+
 {% endif %}
 {% endblock %}
 
