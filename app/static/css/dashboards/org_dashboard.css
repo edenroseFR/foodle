@@ -1,0 +1,152 @@
+
+#main-container {
+    margin: 0px 50px;
+    background-color: #a0e9ee13;
+    border-radius: 2%;
+    margin-bottom: 5% ;
+}
+
+#section1-main{
+    grid-template-columns: auto 1.5fr auto;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 50px;
+}
+
+.greetings-container{
+    background-color: white;
+    border: 1px solid rgb(236, 212, 0);
+    border-radius: 20px;
+    height: 190px;
+
+}
+.greetings-container > .row > .text{
+    text-align: left;
+    margin: 25px;
+}
+.greetings-container > .row > .text > .info{
+    font-weight: 200;
+    font-size:medium;
+}
+.greetings-container > .row > .text > .share-text{
+    padding-top: 10px;
+    color: green;
+}
+.greetings-container > .row > .image {
+    justify-content: center;
+    display: flex;
+    height: 190px;
+    width: 100%;
+}
+.greetings-container > .row > .image > img{
+    border-radius: 0px 20px 20px 0px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+#section2-main {
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+#section3-main ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#section3-main ul a {
+    padding: 20px;
+    /*border: 1px solid #198754;*/
+    border-radius: .25rem;
+    margin-bottom: 5px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+#section3-main ul a img {
+    border-radius: 100%;
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+#section3-main h2 {
+    margin-bottom: 30px;
+}
+
+.to-collect-btn  > .btn, .to-distribute-btn  > .btn {
+   min-width: 250px;
+   max-width: 320px;
+}
+
+.dashboard-btn-img {
+    float: center;
+    width:  100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* events page */
+.create-event-container {
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+
+.create-event-container .create-event {
+    background-color: #198754;
+}
+
+.event {
+    border: 2px solid #198754;
+    border-radius: 0.5rem;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    /*background-color: #198754;*/
+    /*color: #f1f1f1;*/
+}
+
+.event-image {
+    border-radius: .25rem;
+    width: 200px;
+}
+
+.event-btns {
+    margin-top: 20px;
+}
+
+/* members page */
+/* css for members moved to dashboard/members.css */
+
+/*  */
+.donor-item{
+    background-color: #198754;
+    border: 2px solid rgb(255, 255, 255);
+    /* box-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(207, 207, 207), 0 0 5px rgb(104, 104, 104); */
+}
+.donor-name{
+    color: white;
+}
+#donors-header{
+    margin-top: 5%;
+    font-size: large;
+}
+.profile-photo {
+    border-radius: 50%;
+  }
+
+.to-collect-card,
+.to-distribute-card,
+.completed-card{
+    background-color: white;
+    box-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(207, 207, 207), 0 0 5px rgb(104, 104, 104);
+    color: #198754;
+}

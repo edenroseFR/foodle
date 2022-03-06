@@ -11,4 +11,3 @@ class Role():
         result = cursor.fetchone()
         role_id = int(result[0])
         return role_id
-        

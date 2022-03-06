@@ -76,7 +76,21 @@
                 <a class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#view_details_modal{{loop.index}}">
                     <i class="bi bi-card-text"></i> View Details
                 </a>
+
+              <!-- <button class="btn btn-primary" type="button">Button</button> -->
             </div>
+            <!-- <div class="flex action">
+                <div class="edit-button">
+                    <a href="{{url_for('donate.get_donation_items', id=donation) }}" class="btn btn-success onclick="return confirm('Are you sure to delete this post?')">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </a>
+                </div>
+                <div class="delete-button">
+                    <a href="{{url_for('my_donations.delete', id=donation)}}" class="btn btn-outline-secondary" onclick="return confirm('Are you sure to delete this post?')">
+                        <i class="bi bi-trash"></i> Delete
+                    </a>
+                </div>
+            </div> -->
       </div>
       {% endfor %}
   </div>

@@ -19,13 +19,14 @@
                 <img alt="image" src="https://res.cloudinary.com/deh9vgcga/image/upload/v1638884209/22-223968_default-profile-picture-circle-hd-png-download_ct3blj.png" id="feed-profile-photo">
                 {% endif %}
             </a>
-            <a href="#" id='donor-name' class="float-start text-primary">
+            <a href="#" id='donor-name' class="float-start">
                 {{donations[donation]['donor_name']}}
             </a>
             <br>
-            <small class="text-dark d-flex">Donor</small>
-            <small class="text-dark d-flex">Date Reserved: {{donations[donation]['time_posted']}}</small>
-            <small class="text-dark d-flex">Mode of transport: {{donations[donation]['transport_mode']}}</small>
+            <small class="text-muted d-flex">Donor</small>
+            <small class="text-muted d-flex">Date Reserved: {{donations[donation]['time_posted']}}</small>
+            <small class="text-muted d-flex">Mode of transport: {{donations[donation]['transport_mode']}}</small>
+
         </div>
         <!-- <div class="social-body text-center"> -->
             <div id="carouselExampleCaptions{{donation}}" class="carousel slide" data-bs-ride="carousel">
@@ -81,8 +82,10 @@
                       <p>Do you want to keep it posted?</p>
                     </div>
                     <div class="modal-footer">
-                      <a href="{{url_for('donations.cancel_donation', id=donation, is_delete = 1) }}"  class="btn btn-danger">Delete</a>
-                      <a href="{{url_for('donations.cancel_donation', id=donation, is_delete = 0) }}"  class="btn btn-primary">Keep it posted</a>
+
+                      <a href="{{url_for('my_donations.cancel_donation', id=donation, is_delete = 1) }}"  class="btn btn-danger">Delete</a>
+                      <a href="{{url_for('my_donations.cancel_donation', id=donation, is_delete = 0) }}"  class="btn btn-primary">Keep it posted</a>
+
                     </div>
                   </div>
                 </div>

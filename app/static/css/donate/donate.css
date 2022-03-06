@@ -1,0 +1,48 @@
+#section0-main{
+    background-color: rgb(255, 255, 255);
+    display:grid;
+    grid-template-columns: auto 1.5fr auto;
+    text-align: center;
+    margin: 5px 80px 30px 50px;
+}
+#section1-main{
+    margin: 50px 50px 0px 60px; /* top right bottom left */
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+   
+}
+#add-item-btn{
+    grid-area: 1 / 5 / span 1 / span 1;  
+    margin-bottom: 1rem;
+}
+#item-label{
+    grid-area: 1 / 1 / span 1 / span 1;
+    margin-bottom: 1rem;
+}
+table{
+    grid-area: 2 / 1 / span 1 / span 5;
+}
+#donate-btn{
+    grid-area: 3 / 2 / span 1 / span 3;
+}
+thead{
+    background-color: #009900;
+    color: #ffffff;
+}
+tbody{
+    background-color: #00990070;
+}
+td{
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+}
+.item-img {
+    border-radius: 30%;
+}
+#no_item_label{
+    color: #000000;
+}
+

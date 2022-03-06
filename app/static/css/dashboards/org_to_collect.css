@@ -1,0 +1,165 @@
+#main-container {
+    margin: 72px 50px;
+    background-color: #ffffff;
+}
+
+#section1-main{
+    display:grid;
+    text-align: center;
+    margin-bottom: 10%;
+    margin-top: 0;
+    background-color: white;
+}
+
+#section2-main{
+    background-color: rgba(240, 248, 255, 0.274);
+    margin-top: 15%;
+}
+.mini-nav{
+    position: fixed;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 15%);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    z-index: 100;
+}
+.mini-link{
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+.mini-link:hover{
+    color: #009900;
+  }
+
+.active{
+    color:#009900;
+    text-decoration: underline;
+    text-decoration-color: #00990077;
+    text-underline-offset: 5px;
+}
+
+.donation {
+    display: flex;
+    background-color: rgba(240, 248, 255, 0.274);
+    box-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 25px rgb(207, 207, 207), 0 0 5px rgb(197, 195, 195);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+
+.btn-distribute{
+    background-color: green;
+    height: 80%;
+    color: white;
+    border: 2px solid green;
+    margin: 5%;
+}
+
+.btn-distribute:active{
+    border: 2px solid white;
+}
+#dist-text{
+    margin: auto
+}
+#line{
+    width: 1%;
+    background-color: green !important;
+    color: green !important;
+    margin-right: 2%;
+}
+#heading{
+    color: #7e7d7d;
+    font-size: medium;
+}
+
+
+/*Distribution gallery*/
+.gallery-btn{
+    position: absolute;
+    right: 5%;
+    justify-content: right;
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+}
+.gallery-btn > img{
+    justify-content: center;
+    margin: 25%;
+    width: 50%;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid white;
+    box-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 8px rgb(207, 207, 207), 0 0 4px rgb(197, 195, 195);
+}
+.gallery-btn > img:hover {
+    border-radius: 5px;
+}
+.gallery-header{
+    background-color: #313131a1 !important;
+    color: white;
+}
+.gallery-body{
+    height: 300px !important;
+    background-color: #313131a1 !important;
+}
+.carousel-item-img{
+    height: 500px !important;
+    max-width: 80%;
+    margin-left: 10%;
+    object-fit: scale-down;
+  }
+
+  .carousel-img{
+    height: 500px !important;
+    max-width: 80%;
+    object-fit: scale-down;
+  }
+
+.social-feed-box-completed{
+    border: 1px solid rgba(0, 0, 0, 0.219);
+    margin-bottom: 5%;
+    border-radius: 10px;
+}
+
+.social-avatar{
+    margin-left: 7%;
+}
+
+.small-donation-details{
+    margin-left: 5%;
+    padding-bottom: 5%;
+    padding-top: 2%;
+}
+.item-button{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: #939793;
+    color: white;
+    margin-right: 12.5%;
+    margin-left: 5%;
+    border-radius: 0px;
+
+}
+.item-button:hover{
+    color: white;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+    background-color: green;
+}
+
+.btn-cancel, .btn-recieved{
+    margin-top: 2%;
+    justify-content: center;
+    width: 80%;
+    background-color: #009900;
+}
