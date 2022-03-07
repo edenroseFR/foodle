@@ -1,4 +1,4 @@
-# food Donation Web Application
+# Food Donation Web Application
 
 ## FEATURES
 
@@ -27,15 +27,16 @@ type nul > .env
 4. Open the .env file and write the following:
 
 ```python
-DB_HOST=your_database_host
-DB_NAME=fododb
-DB_USERNAME=your_database_username
-DB_PASSWORD=your_database_password
-SECRET_KEY=any_string_will_do
+SECRET_KEY = value
 
-CLOUD_NAME = your_cloudinary_name
-API_KEY = your_cloudinary_api_key
-API_SECRET = your_cloudinary_api_secretkey
+DB_HOST= value
+DB_NAME= fododb
+DB_USERNAME= value
+DB_PASSWORD= value
+
+CLOUD_NAME = value
+API_KEY = value
+API_SECRET = value
 PHOTO_UPLOAD = cloud
 ```
 
