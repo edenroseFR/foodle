@@ -2,7 +2,7 @@
 
 {% block title %}Food Donation - My Profile{% endblock %}
 {% block style %}
-    <link rel="stylesheet" type="text/css"href="{{url_for('static', filename='css/my_profile/profile.css')}}">
+    <link rel="stylesheet" type="text/css"href="{{url_for('static', filename='css/profile.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/sidebars/donor_sidebar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbars/donor_navbar.css')}}">
 {% endblock %}
@@ -43,8 +43,8 @@
                           {% endif %}
                       </div>
                       <div class="edit-button">
-                        <a href="{{url_for('settings.settings')}}">
-                          <div class="btn">Edit Profile</div>
+                        <a href="#">
+                          <div class="btn edit-btn">Edit Profile</div>
                         </a>
                       </div>
                   </span>
@@ -84,24 +84,69 @@
 
           </section>
 
-          {% if role=="Donor" %}
-          <section id="section3-main">
-            <div class="col-6 content-3">
-              <h2>Member of: </h2>
-            </div>
-            <div class="col-6 content-4" id="about-content">
-              <ul>
-              {% for i in parent_orgs %}
-                  <li>
-                    <h4>{{i[0]}}</h4>
-                  </li>
-              {% endfor %}
-              </ul>
-            </div>
-          </section>
-          {% endif %}
+          {% if role != 'Collector' %}
+          <section id="section3-main" class="border border-2 border-success rounded">
+                <h2 id="donation-stat-title">Donation Statistics</h2>
+                <div class="text-center">
+                    <span>
+                        <i class="fas fa-weight fa-2x me-2"></i>
+                    </span>
+                    <span class="fs-3">{{donations_kls}} kls</span>
+                    <p class="fs-6">of food donated</p>
+                </div>
+                <div class="text-center">
+                    <span>
+                        <i class="fas fa-tint fa-2x me-2"></i>
+                    </span>
+                    <span class="fs-3">{{beverages_ltr}} ltr</span>
+                    <p class="fs-6">of beverages donated</p>
+                </div> 
+                <div class="text-center">
+                    <span>
+                        <i class="fas fa-truck fa-2x me-2"></i>
+                    </span>
+                    <span class="fs-3">{{food_distributed}} kls</span>
+                    <p class="fs-6">of food distributed</p>
+                </div>
+                <div class="text-center">
+                    <span>
+                        <i class="fas fa-truck fa-2x me-2"></i>
+                    </span>
+                    <span class="fs-3">{{bev_distributed}} ltr</span>
+                    <p class="fs-6">of food distributed</p>
+                </div>   
+            </section>
 
-          
+            <section id="section4-main" class="border border-2 border-success rounded">
+                <h2 id="your-donation-title">Your Donations</h2>  
+                <div class="row">
+                    <div class="posted-btn text-center col-lg-3">
+                        <a href="#" role="button" class="btn"> 
+                            <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226182/posted_klecqw.png" alt="" class="dashboard-btn-img" id="posted-btn">
+                            <h5 class= "text-center">Posted</h5>
+                        </a>
+                    </div>
+                    <div class="reserved-btn text-center col-lg-3">
+                        <a href="#" role="button" class="btn">
+                            <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226244/reserved_a2pqlz.png" alt="" class="dashboard-btn-img">
+                            <h5 class= "text-center">Reserved</h5>
+                        </a>
+                    </div>
+                    <div class="collected-btn text-center col-lg-3">
+                        <a href="#" role="button" class="btn">
+                            <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226284/collected_iw6hoc.png" alt="" class="dashboard-btn-img">
+                            <h5 class= "text-center">Collected</h5>
+                        </a>
+                    </div>
+                    <div class="distributed-btn text-center col-lg-3">
+                        <a href="#" role="button" class="btn">
+                            <img src="https://res.cloudinary.com/deh9vgcga/image/upload/v1642226302/distributed_q83a6h.png" alt="" class="dashboard-btn-img">
+                            <h5 class= "text-center">Distributed</h5>
+                        </a>
+                    </div>  
+                </div> 
+            </section>
+            {% endif %}
       </main>
   </div>
 </div>
