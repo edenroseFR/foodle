@@ -1,87 +1,88 @@
 <div class="container">   
-    <div class="container text-center" id="post-container">
-        {% if donations|length == 0 %}
-        <div class="empty-feed">
-          <div id="img-container">
-            <img id="icon" src="https://res.cloudinary.com/deh9vgcga/image/upload/v1639957724/box_ytacrg.png" alt="">
-          </div>
-          <h3 id="empty-text">Sorry, there's nothing here yet.</h3>
-          <a href="{{url_for('dashboard.collector_dashboard')}}" class="btn" id="empty-home-btn">Home</a>
+  <div class="container text-center" id="post-container">
+      {% if donations|length == 0 %}
+      <div class="empty-feed">
+        <div id="img-container">
+          <img id="icon" src="https://res.cloudinary.com/deh9vgcga/image/upload/v1639957724/box_ytacrg.png" alt="">
         </div>
-        {% endif %}
-        {% for donation in donations %}
-        <div class="social-feed-box"> 
-            <div class="social-avatar">
-                <a href="#" class="float-start" style="text-decoration: none;">
-                    {% if donations[donation]['donor_image'] %}
-                    <img alt="image" src="{{donations[donation]['donor_image']}}" id="feed-profile-photo">
-                    {% else %}
-                    <img alt="image" src="https://res.cloudinary.com/deh9vgcga/image/upload/v1638884209/22-223968_default-profile-picture-circle-hd-png-download_ct3blj.png" id="feed-profile-photo">
-                    {% endif %}
-                </a>
-                <a href="#" id='donor-name' class="float-start">
-                    {{donations[donation]['donor_name']}}
-                </a>
-                <br>
-                <small class="text-muted d-flex">Donor</small>
-                <small class="text-muted d-flex">Date Posted: {{donations[donation]['time_posted']}}</small>
-                <small class="text-muted d-flex">Mode of transport: {{donations[donation]['transport_mode']}}</small>
-            </div>
-            <!-- <div class="social-body text-center"> -->
+        <h3 id="empty-text">Sorry, there's nothing here yet.</h3>
+        <a href="{{url_for('dashboard.collector_dashboard')}}" class="btn" id="empty-home-btn">Home</a>
+      </div>
+      {% endif %}
+      {% for donation in donations %}
+      <div class="social-feed-box"> 
+          <div class="social-avatar">
+              <a href="#" class="float-start" style="text-decoration: none;">
+                  {% if donations[donation]['donor_image'] %}
+                  <img alt="image" src="{{donations[donation]['donor_image']}}" id="feed-profile-photo">
+                  {% else %}
+                  <img alt="image" src="https://res.cloudinary.com/deh9vgcga/image/upload/v1638884209/22-223968_default-profile-picture-circle-hd-png-download_ct3blj.png" id="feed-profile-photo">
+                  {% endif %}
+              </a>
+              <a href="#" id='donor-name' class="float-start">
+                  {{donations[donation]['donor_name']}}
+              </a>
+              <br>
+              <small class="text-muted d-flex">Donor</small>
+              <small class="text-muted d-flex">Date Posted: {{donations[donation]['time_posted']}}</small>
+              <small class="text-muted d-flex">Mode of transport: {{donations[donation]['transport_mode']}}</small>
+          </div>
+          <!-- <div class="social-body text-center"> -->
 
-                <div id="carouselExampleCaptions{{donation}}" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                      {% for index in range (0, donations[donation]['items']|length) %}
-                      {% if index == 0 %}
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <div id="carouselExampleCaptions{{donation}}" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
+                    {% for index in range (0, donations[donation]['items']|length) %}
+                    {% if index == 0 %}
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    {% else %}
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{index}}" aria-label="Slide {{index}}"></button>
+                    {% endif %}
+                    {% endfor %}
+                  </div>
+                  <div class="carousel-inner">
+                      {% for img in range (0, donations[donation]['items']|length) %}
+                      {% if img == 0 %}
+                      <div class="carousel-item active">
+                        <img id="carousel-img" src="{{donations[donation]['items'][img][-1]}}" class="d-block w-100 carousel-item-img" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>{{donations[donation]['items'][img][0]}}</h5>
+                          <p>{{donations[donation]['items'][img][1]}} {{donations[donation]['items'][img][2]}}</p>
+                        </div>
+                      </div>
                       {% else %}
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{index}}" aria-label="Slide {{index}}"></button>
+                      <div class="carousel-item">
+                        <img id="carousel-img" src="{{donations[donation]['items'][img][-1]}}" class="d-block w-100 carousel-item-img" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5>{{donations[donation]['items'][img][0]}}</h5>
+                          <p>{{donations[donation]['items'][img][1]}} {{donations[donation]['items'][img][2]}}</p>
+                        </div>
+                      </div>
                       {% endif %}
                       {% endfor %}
-                    </div>
-                    <div class="carousel-inner">
-                        {% for img in range (0, donations[donation]['items']|length) %}
-                        {% if img == 0 %}
-                        <div class="carousel-item active">
-                          <img id="carousel-img" src="{{donations[donation]['items'][img][-1]}}" class="d-block w-100 carousel-item-img" alt="...">
-                          <div class="carousel-caption d-none d-md-block">
-                            <h5>{{donations[donation]['items'][img][0]}}</h5>
-                            <p>{{donations[donation]['items'][img][1]}} {{donations[donation]['items'][img][2]}}</p>
-                          </div>
-                        </div>
-                        {% else %}
-                        <div class="carousel-item">
-                          <img id="carousel-img" src="{{donations[donation]['items'][img][-1]}}" class="d-block w-100 carousel-item-img" alt="...">
-                          <div class="carousel-caption d-none d-md-block">
-                            <h5>{{donations[donation]['items'][img][0]}}</h5>
-                            <p>{{donations[donation]['items'][img][1]}} {{donations[donation]['items'][img][2]}}</p>
-                          </div>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions{{donation}}" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions{{donation}}" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
                   </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions{{donation}}" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions{{donation}}" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
 
-                <small class="text-muted location">
-                  Located at <strong>{{donations[donation]['location']}}</strong>
-                </small>
-                <br>
-                <center>
-                  <div>
-                    <a href="{{url_for('collectors_view.collect_donation', donation_id=donation)}}" class="btn btn-success collect-button">
-                      <i class="bi bi-cart"></i> Reserve
-                    </a>
+              <small class="text-muted location">
+                Located at <strong>{{donations[donation]['location']}}</strong>
+              </small>
+              <br>
+              <center>
+                <div>
+                  <a href="{{url_for('collectors_view.collect_donation', donation_id=donation)}}" class="btn btn-success collect-button">
+                    <i class="bi bi-cart"></i> Reserve
+                  </a>
                 </div>
-                </center>
-            <!-- </div> -->
-        {% endfor %}
-    </div>
+              </center>
+          <!-- </div> -->
+        </div>
+      {% endfor %}
+  </div>
 </div>

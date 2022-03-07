@@ -40,7 +40,7 @@
     color: white;
     font-weight: bolder;
 }
-.btn{
+.edit-btn{
     width: 150px;
     font-size: 1vw;
     font-weight: bold;
@@ -169,4 +169,33 @@ nav{
 .members-list img {
     margin-right: 1rem;
     border-radius: 100%;
+}
+
+#section3-main, #section4-main{
+    margin: 50px 50px 0px 60px; /* top right bottom left */
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: stretch;  
+    column-gap: 10px;
+    padding: 5px;
+}
+
+.fas{
+    color: #009000;
+}
+.fas:hover{
+    color: #ffff00;  
+}
+
+#section4-main img{
+    width: 48px;
+    height: 48px;
+}
+
+#section4-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2rem;
 }
