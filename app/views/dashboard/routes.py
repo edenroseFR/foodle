@@ -28,8 +28,7 @@ def collector_dashboard():
         food_distributed = utils.get_total_food_bev_distributed(session["email_address"])
         our_donors = utils.get_organization_donors(session["email_address"])
        
-        return render_template('dashboard/collector_dashboard.html', donor = donor_details, 
-            our_donors=our_donors, food_distributed=food_distributed) 
+        return redirect(url_for('collectors_view.collectors_view'))
     else:
         return redirect(url_for('login.login'))
 
