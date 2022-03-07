@@ -59,7 +59,7 @@ type nul > .flaskenv
 9. Open the .flaskenv file and make sure it contains the following:
 
 ```python
-FLASK_APP=foodle
+FLASK_APP=app
 FLASK_ENV=development
 FLASK_RUN_PORT=8080
 ```
