@@ -623,7 +623,7 @@ class Donation:
             JOIN items i ON i.donation_id = d.donation_id
             JOIN collected_donations c ON d.donation_id = c.donation_id
             JOIN distributed_donations dt ON d.donation_id = dt.donation_id
-            WHERE d.donor_id = {donor_id} AND c.is_distributed = 1
+            WHERE d.donor_id = {donor_id} AND d.is_distributed = 1 AND d.is_collected = 1
             ORDER BY dt.distributed_donation_id DESC
         """
         cursor.execute(query)
