@@ -1,10 +1,17 @@
 from flask.app import Flask
 from flask_wtf import FlaskForm
-from .validators import UniqueEmail
-from wtforms import (StringField, PasswordField,
-    SubmitField, EmailField, TelField, RadioField, TextAreaField)
+from wtforms import StringField, PasswordField
+from wtforms import SubmitField
+from wtforms import EmailField
+from wtforms import TelField
+from wtforms import RadioField
+from wtforms import TextAreaField
 from wtforms.fields.simple import TextAreaField
-from wtforms.validators import DataRequired, Length, EqualTo, Email
+from wtforms.validators import DataRequired
+from wtforms.validators import Length
+from wtforms.validators import EqualTo
+from wtforms.validators import Email
+from .validators import UniqueEmail
 
 
 class LoginForm(FlaskForm):

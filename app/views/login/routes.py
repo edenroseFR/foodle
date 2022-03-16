@@ -1,25 +1,24 @@
 from flask.helpers import url_for
 from werkzeug.utils import redirect
-from . import login_bp
-from flask import render_template, request, session, flash
+from flask import flash
+from flask import render_template
+from flask import request
+from flask import session
 from ...models.user import User
-from .forms import (
-    LoginForm,
-    RegistrationForm,
-    ResetPasswordForm,
-    VerifyCodeForm,
-    NewPasswordForm,
-)
-from .utils import (
-    user_found,
-    hash_password,
-    get_role_id,
-    random_characters,
-    gmail_code,
-    check_email_registration,
-    save_new_password,
-    get_role,
-)
+from .forms import LoginForm
+from .forms import RegistrationForm
+from .forms import ResetPasswordForm
+from .forms import VerifyCodeForm
+from .forms import NewPasswordForm
+from .utils import user_found
+from .utils import hash_password
+from .utils import get_role_id
+from .utils import random_characters
+from .utils import gmail_code
+from .utils import check_email_registration
+from .utils import save_new_password
+from .utils import get_role
+from . import login_bp
 
 
 @login_bp.route("/login", methods=["GET", "POST"])
