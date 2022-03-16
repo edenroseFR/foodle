@@ -1,8 +1,8 @@
+from wtforms.validators import ValidationError
 from email import message
 from .utils import check_email_registration
 from .utils import check_contact_registration
 from .utils import check_org_registration
-from wtforms.validators import ValidationError
 
 
 

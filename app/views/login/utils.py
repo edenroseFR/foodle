@@ -1,11 +1,12 @@
-from ...models.user import User
-from ...models.role import Role
-from werkzeug.security import generate_password_hash
+from os import getenv
 import random
 import string
 import smtplib
 from email.message import EmailMessage
-from os import getenv
+from werkzeug.security import generate_password_hash
+from ...models.user import User
+from ...models.role import Role
+
 
 def user_found(email: str = None, password: str = None) -> bool:
     user_exist = User().check_credentials(email, password)

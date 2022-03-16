@@ -1,4 +1,5 @@
-from . import db, cursor
+from . import db
+from . import cursor
 
 class Role():
     def get_id(role_name: str = None) -> int:
