@@ -5,20 +5,20 @@ from . import db, cursor
 class User():
     def __init__(
         self,
-        user_id=None,
-        first_name=None,
-        middle_name=None,
-        last_name=None,
-        email=None,
-        password=None,
+        user_id: str = None,
+        first_name: str = None,
+        middle_name: str = None,
+        last_name: str = None,
+        email: str = None,
+        password: str = None,
         phone_number=None,
-        org_name=None,
-        about=None,
-        street=None,
-        barangay=None,
-        city=None,
-        image_link=None,
-        user_role=None
+        org_name: str = None,
+        about: str = None,
+        street: str = None,
+        barangay: str = None,
+        city: str = None,
+        image_link: str = None,
+        user_role: int = None
     ) -> None:
 
         self.user_id = user_id
@@ -89,8 +89,8 @@ class User():
             password_match = self.check_password_match(email, password)
             if password_match:
                 return True
-            return 'Wrong password.'
-        return 'Username does not exist'
+            return "Wrong password."
+        return "Username does not exist"
 
     def check_password_match(self, email, password):
         query = f"""
