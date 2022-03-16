@@ -51,6 +51,8 @@ API_KEY = value
 API_SECRET = value
 PHOTO_UPLOAD = cloud
 ```
+Note: To fill the `cloud_name`, `api_key`, and `api_secret` you need to have a [cloudinary] (https://cloudinary.com/home-3722) account.
+
 8. Create a flaskenv file.
 
 ```bash
